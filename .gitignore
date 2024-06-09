@@ -4,4 +4,4 @@
 /README.md
 /android/app/build/outputs/apk
 /android/.gradle/8.6/executionHistory/executionHistory.bin
-android\app\google-services.json
+/android/app/google-services.json
