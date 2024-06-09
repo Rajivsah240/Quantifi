@@ -1,0 +1,6 @@
+/.env
+/.vscode
+/node_modules
+/README.md
+/android/app/build/outputs/apk
+/android/.gradle/8.6/executionHistory/executionHistory.bin

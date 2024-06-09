@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">160594724358-et74eitrkp84siv7864oqkilvjqhrgf3.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">160594724358</string>
+    <string name="google_api_key" translatable="false">AIzaSyDvk7IumxxzbQN9RgTMJo2ftbaySf4Brio</string>
+    <string name="google_app_id" translatable="false">1:160594724358:android:fc32e6e0cf336e2de4e587</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDvk7IumxxzbQN9RgTMJo2ftbaySf4Brio</string>
+    <string name="google_storage_bucket" translatable="false">quantifi-7592a.appspot.com</string>
+    <string name="project_id" translatable="false">quantifi-7592a</string>
+</resources>

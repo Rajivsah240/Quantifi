@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "160594724358",
+    "project_id": "quantifi-7592a",
+    "storage_bucket": "quantifi-7592a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160594724358:android:fc32e6e0cf336e2de4e587",
+        "android_client_info": {
+          "package_name": "com.quantifi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160594724358-fl10asfhqf8jd56cmtpur8419upg76lg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.quantifi",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "160594724358-vknmlg59qd5afo96r8c7ns7df0tv0oui.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.quantifi",
+            "certificate_hash": "96c4efd8f684bdd258c45ab84341dfde66230a14"
+          }
+        },
+        {
+          "client_id": "160594724358-et74eitrkp84siv7864oqkilvjqhrgf3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvk7IumxxzbQN9RgTMJo2ftbaySf4Brio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160594724358-et74eitrkp84siv7864oqkilvjqhrgf3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
