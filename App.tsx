@@ -10,6 +10,9 @@ import TabNavigator from './components/TabNavigator';
 import { AuthProvider } from './AuthContext';
 import Home from './pages/Home';
 import OnboardingPage from './pages/Onboarding';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
+import OTPVerification from './pages/OtpVerification';
 const Stack = createStackNavigator();
 
 
@@ -21,6 +24,9 @@ const App = () => {
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="Onboarding" component={OnboardingPage}/>
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+          <Stack.Screen name="OTPVerification" component={OTPVerification}/>
+          <Stack.Screen name="ResetPassword" component={ResetPassword}/>
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Tab" component={TabNavigator} />
           <Stack.Screen name="Home" component={Home}/>

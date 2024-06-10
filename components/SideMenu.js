@@ -14,10 +14,13 @@ const {width, height} = Dimensions.get('window');
 import {userContext} from '../AuthContext';
 
 const SideMenu = ({navigation, user, toggleMenu}) => {
-  const {logout} = userContext();
+  const {logout,signInMethod} = userContext();
 
   const handleLogout = async () => {
-    await GoogleSignin.revokeAccess();
+    if (signInMethod === 'google') {
+      await GoogleSignin.revokeAccess();
+      // await GoogleSignin.signOut();
+    }
     // await GoogleSignin.signOut();
     logout();
     navigation.navigate('Splash');

@@ -23,7 +23,6 @@ import {
 } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 
-import {SERVER_IP} from '@env';
 
 const Login = ({navigation}) => {
   const {login} = userContext();
@@ -34,6 +33,8 @@ const Login = ({navigation}) => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
+
+  const {SERVER_IP} = process.env.SERVER_IP;
 
   console.log(SERVER_IP);
 
@@ -64,7 +65,7 @@ const Login = ({navigation}) => {
         if (response.data.success) {
           setMessage('Successfully Logged In!');
           const {name, profile_pic} = response.data.user;
-          login({name, email, profile_pic});
+          login({name, email, profile_pic},"local");
           setTimeout(() => {
             setModalVisible(false);
             navigation.navigate('Tab');
@@ -112,7 +113,7 @@ const Login = ({navigation}) => {
         await auth().signInWithCredential(googleCredential);
 
         const {givenName, email, photo} = userInfo.user;
-        login({name: givenName, email, profile_pic: photo});
+        login({name: givenName, email, profile_pic: photo},"google");
         setMessage('Signing Successful with Google...');
         setTimeout(() => {
           setModalVisible(false);
@@ -175,8 +176,8 @@ const Login = ({navigation}) => {
               </Text>
             </TouchableOpacity>
           </View>
-          <TouchableOpacity style={styles.recoveryButton}>
-            <Text style={styles.recoveryText}>Recovery Password</Text>
+          <TouchableOpacity style={styles.recoveryButton} onPress={()=>{navigation.navigate("ForgotPassword")}}>
+            <Text style={styles.recoveryText}>Forgot Password ?</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.signInButton} onPress={handleSignIn}>
             <Text style={styles.signInButtonText}>Sign In</Text>
@@ -220,7 +221,7 @@ const Login = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#f5f5f5',
   },
   scrollContainer: {
     flexGrow: 1,
@@ -292,7 +293,7 @@ const styles = StyleSheet.create({
   recoveryButton: {
     alignSelf: 'flex-end',
     marginTop: 12,
-    marginRight: 20,
+    // marginRight: 1,
   },
   recoveryText: {
     fontSize: 12,

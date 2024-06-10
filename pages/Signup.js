@@ -231,10 +231,6 @@ const Signup = ({navigation}) => {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity onPress={() => {}} style={styles.recoveryButton}>
-        <Text style={styles.recoveryText}>Recovery Password</Text>
-      </TouchableOpacity>
-
       <TouchableOpacity onPress={uploadImage} style={styles.signupButton}>
         <Text style={styles.signupButtonText}>Sign Up</Text>
       </TouchableOpacity>
@@ -341,14 +337,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#007bff',
   },
-  recoveryButton: {
-    alignSelf: 'flex-end',
-    marginTop: 12,
-  },
-  recoveryText: {
-    fontSize: 12,
-    color: '#007bff',
-  },
+
   signupButton: {
     width: '100%',
     height: 50,
