@@ -12,8 +12,9 @@ import axios from 'axios';
 
 
 const ForgotPassword = ({navigation}) => {
+  const SERVER_IP = process.env.SERVER_IP;
   const [email, setEmail] = useState('');
-  const {SERVER_IP} = process.env.SERVER_IP;
+
   const handlePasswordResetRequest = async () => {
     if (!email) {
       Alert.alert('Please enter your email address');

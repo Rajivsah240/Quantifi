@@ -15,6 +15,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
+
+
 import axios from 'axios';
 import {userContext} from '../AuthContext';
 import {
@@ -25,16 +27,18 @@ import auth from '@react-native-firebase/auth';
 
 
 const Login = ({navigation}) => {
+  const SERVER_IP = process.env.SERVER_IP;
+  
   const {login} = userContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordVisibility, setPasswordVisibility] = useState(false);
 
+  
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
 
-  const {SERVER_IP} = process.env.SERVER_IP;
 
   console.log(SERVER_IP);
 
@@ -141,11 +145,7 @@ const Login = ({navigation}) => {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView style={styles.container}>
         <ScrollView contentContainerStyle={styles.scrollContainer}>
-          {/* <View style={styles.backButtonContainer}>
-            <View style={styles.backButton}>
-              <Text style={styles.backButtonText}>&lt;</Text>
-            </View>
-          </View> */}
+        
           <Text style={styles.title}>Hello Again !</Text>
           <Text style={styles.subtitle}>
             Fill your details or continue with social media

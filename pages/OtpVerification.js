@@ -14,12 +14,14 @@ import axios from 'axios';
 
 
 const OTPVerification = ({ navigation, route }) => {
+  const SERVER_IP = process.env.SERVER_IP;
+  
   const { email } = route.params;
   const [otp, setOtp] = useState(['', '', '', '']);
   const [timer, setTimer] = useState(30);
   const [isResendDisabled, setIsResendDisabled] = useState(true);
   const inputs = useRef([]);
-  const {SERVER_IP} = process.env.SERVER_IP;
+
 
   useEffect(() => {
     startTimer();

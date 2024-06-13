@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -12,12 +12,13 @@ import axios from 'axios';
 
 
 const ResetPassword = ({ navigation,route }) => {
+  const SERVER_IP = process.env.SERVER_IP;
+  
   const {email} = route.params;
   console.log('email:',email)
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const {SERVER_IP} = process.env.SERVER_IP;
 
   const handlePasswordReset = async () => {
     if (!newPassword || !confirmPassword) {

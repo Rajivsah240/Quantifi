@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import HealthMetrics from '../components/HealthMetrics'
 import CarouselItems from '../components/CarouselItems'
 import Divider from '../components/Divider'
+import ParallaxCarousel from '../components/ParallaxCarousel'
 
 const Home = ({navigation}) => {
   return (
@@ -11,7 +12,8 @@ const Home = ({navigation}) => {
       <Header navigation={navigation}/>
       <Divider/>
       <HealthMetrics/>
-      <CarouselItems/>
+      {/* <CarouselItems/> */}
+      <ParallaxCarousel/>
     </View>
   )
 }

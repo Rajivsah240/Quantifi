@@ -125,8 +125,8 @@ const styles = StyleSheet.create({
     width: '100%',
     // height:'100%',
     justifyContent: 'center',
-    
   },
+  
   imageStyle: {
     borderRadius: 10,
     resizeMode:'cover',
