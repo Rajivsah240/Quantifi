@@ -45,7 +45,7 @@ const ParallaxCarousel = () => {
       <Carousel
         sliderWidth={screenWidth}
         sliderHeight={screenWidth}
-        itemWidth={screenWidth - 150}
+        itemWidth={screenWidth-170}
         data={data}
         renderItem={renderItem}
         hasParallaxImages={true}
