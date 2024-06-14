@@ -3,6 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Text, StyleSheet, Image} from 'react-native';
 
 import Home from '../pages/Home';
+import { Icon } from 'react-native-elements';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,14 +25,11 @@ const TabNavigator = () => {
 
       })}>
       <Tab.Screen
-        name="Stats"
+        name="Fitband"
         component={Home}
         options={{
           tabBarIcon: ({focused}) => (
-            <Image
-              source={require('../assets/icons/speed.png')}
-              style={{width: focused?40:20, height: focused?40:20}}
-            />
+            <Icon name='watch' type='feather' size={focused?30:20} color={focused?'red':'grey'}/>
           ),
         }}
       />
@@ -76,10 +74,7 @@ const TabNavigator = () => {
         component={Home}
         options={{
           tabBarIcon: ({focused}) => (
-            <Image
-              source={require('../assets/icons/health.png')}
-              style={{width: focused?40:20, height: focused?40:20}}
-            />
+            <Icon name='activity' type='feather' size={focused?30:20} color={focused?'green':'grey'}/>
           ),
         }}
       />

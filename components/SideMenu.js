@@ -20,7 +20,15 @@ const SideMenu = ({navigation, user, toggleMenu}) => {
 
   const handleLogout = async () => {
     if (signInMethod === 'google') {
-      await GoogleSignin.revokeAccess();
+      const isSignedIn = GoogleSignin.hasPreviousSignIn();
+      if (isSignedIn) {
+        await GoogleSignin.revokeAccess();
+        console.log('Google access revoked successfully');
+      }
+      else{
+        console.log('Google access could not be revoked');
+      
+      }
     }
     logout();
     navigation.navigate('Splash');
@@ -40,7 +48,9 @@ const SideMenu = ({navigation, user, toggleMenu}) => {
         <Text style={styles.companyName}>Quantifi</Text>
         <Icon name="search" type="feather" color="black" />
       </View>
-      <TouchableOpacity style={styles.premiumButton} onPress={() => navigation.navigate('Premium')}>
+      <TouchableOpacity
+        style={styles.premiumButton}
+        onPress={() => navigation.navigate('Premium')}>
         <Text style={styles.premiumButtonText}>Go Premium</Text>
       </TouchableOpacity>
 
@@ -185,12 +195,12 @@ const styles = StyleSheet.create({
   premiumButton: {
     backgroundColor: '#023e8a',
     paddingVertical: 5,
-    borderWidth:2,
-    borderColor:'#2196F3FF',
+    borderWidth: 2,
+    borderColor: '#2196F3FF',
     borderRadius: 20,
     alignItems: 'center',
     marginBottom: 10,
-    width:'50%'
+    width: '50%',
   },
   premiumButtonText: {
     color: 'white',

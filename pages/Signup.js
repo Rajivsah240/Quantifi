@@ -13,6 +13,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
+import {Icon} from '@rneui/themed';
 import axios from 'axios';
 import storage from '@react-native-firebase/storage';
 import {
@@ -22,7 +23,7 @@ import {
 import auth from '@react-native-firebase/auth';
 
 const Signup = ({navigation}) => {
-  const serverIP = process.env.SERVER_IP;
+  const SERVER_IP = process.env.SERVER_IP;
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -37,7 +38,7 @@ const Signup = ({navigation}) => {
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
-  const [modalVisible, setModalVisible] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     GoogleSignin.configure({
@@ -65,7 +66,7 @@ const Signup = ({navigation}) => {
     }
 
     setLoading(true);
-    setModalVisible(true);
+
     setMessage('Signing up...');
 
     const userData = {
@@ -76,29 +77,27 @@ const Signup = ({navigation}) => {
     };
 
     try {
-      const response = await axios.post(`${serverIP}/signup`, userData,{
-        validateStatus: function(status){
-          return status<500;
-        }
+      const response = await axios.post(`${SERVER_IP}/signup`, userData, {
+        validateStatus: function (status) {
+          return status < 500;
+        },
       });
 
       if (response.data.success) {
+        setSuccess(true);
         setMessage('Successfully signed up!');
         setTimeout(() => {
           setLoading(false);
-          setModalVisible(false);
           navigation.navigate('Login');
         }, 2000);
       } else {
         Alert.alert('Signup Failed', response.data.message);
         setLoading(false);
-        setModalVisible(false);
       }
     } catch (error) {
       console.error(error);
       Alert.alert('Signup Failed', 'An error occurred during signup.');
       setLoading(false);
-      setModalVisible(false);
     }
   };
 
@@ -252,17 +251,22 @@ const Signup = ({navigation}) => {
         </TouchableOpacity>
       </View>
 
-      <Modal transparent={true} animationType="slide" visible={modalVisible}>
-        <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
-          <View style={styles.modalBackground}>
-            <TouchableWithoutFeedback>
-              <View style={styles.activityIndicatorWrapper}>
-                <ActivityIndicator size="large" color="#007bff" />
-                <Text style={styles.loadingText}>{message}</Text>
-              </View>
-            </TouchableWithoutFeedback>
+      <Modal transparent={true} animationType="slide" visible={loading}>
+        <View style={styles.modalBackground}>
+          <View style={styles.activityIndicatorWrapper}>
+            {success ? (
+              <Icon
+                style={styles.successIcon}
+                type="material"
+                name="check"
+                color="green"
+                size={30}></Icon>
+            ) : (
+              <ActivityIndicator size="large" color="#007bff" />
+            )}
+            <Text style={styles.loadingText}>{message}</Text>
           </View>
-        </TouchableWithoutFeedback>
+        </View>
       </Modal>
     </ScrollView>
   );
@@ -401,10 +405,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
   },
+  successIcon: {
+    borderWidth: 2,
+    borderRadius: 30,
+    borderColor: 'green',
+  },
   loadingText: {
     marginTop: 10,
     fontSize: 16,
     color: '#007bff',
+    fontFamily: 'Raleway-Medium',
   },
 });
 

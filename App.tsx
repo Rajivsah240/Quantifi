@@ -1,6 +1,11 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+
+import {
+  GoogleSignin,
+} from '@react-native-google-signin/google-signin';
+
 import Splash from './pages/Splash';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -19,7 +24,13 @@ import CancellationRefundPolicy from './pages/CancellationRefundPolicy';
 const Stack = createStackNavigator();
 
 
+
 const App = () => {
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId: process.env.WEB_CLIENT_ID,
+    });
+  }, []);
   return (
     <AuthProvider>
       <NavigationContainer>

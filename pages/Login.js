@@ -15,8 +15,6 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
-
-
 import axios from 'axios';
 import {userContext} from '../AuthContext';
 import {
@@ -24,29 +22,21 @@ import {
   statusCodes,
 } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
-
+import {Icon} from '@rneui/themed';
 
 const Login = ({navigation}) => {
   const SERVER_IP = process.env.SERVER_IP;
-  
+
   const {login} = userContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordVisibility, setPasswordVisibility] = useState(false);
 
-  
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [message, setMessage] = useState('');
-  const [modalVisible, setModalVisible] = useState(false);
-
 
   console.log(SERVER_IP);
-
-  useEffect(() => {
-    GoogleSignin.configure({
-      webClientId: process.env.WEB_CLIENT_ID,
-    });
-  }, []);
 
   const handleSignIn = async () => {
     if (email && password) {
@@ -55,34 +45,36 @@ const Login = ({navigation}) => {
           return Alert.alert('Please fill all the input fields');
         }
         setLoading(true);
-        setModalVisible(true);
         setMessage('Loging In...');
-        const response = await axios.post(`${SERVER_IP}/login`, {
-          email,
-          password,
-        },{
-          validateStatus: function(status){
-            return status<500;
-          }
-        });
+        const response = await axios.post(
+          `${SERVER_IP}/login`,
+          {
+            email,
+            password,
+          },
+          {
+            validateStatus: function (status) {
+              return status < 500;
+            },
+          },
+        );
 
         if (response.data.success) {
           setMessage('Successfully Logged In!');
+          setSuccess(true);
           const {name, profile_pic} = response.data.user;
-          login({name, email, profile_pic},"local");
+          login({name, email, profile_pic}, 'local');
           setTimeout(() => {
-            setModalVisible(false);
+            setLoading(false);
             navigation.navigate('Tab');
-          }, 2000);
+          }, 5000);
         } else {
           Alert.alert('Login Failed', response.data.message);
-          setModalVisible(false);
           setLoading(false);
         }
       } catch (error) {
         console.error(error);
         Alert.alert('Login Failed', 'An error occurred during login.');
-        setModalVisible(false);
         setLoading(false);
       }
     } else {
@@ -97,18 +89,21 @@ const Login = ({navigation}) => {
         scopes: ['profile', 'email'],
       });
 
-      const existingUser = await axios.post(`${SERVER_IP}/checkUser`, {
-        email: userInfo.user.email,
-      },
-      {
-        validateStatus: function(status){
-          return status<500;
-        }
-      });
+      const existingUser = await axios.post(
+        `${SERVER_IP}/checkUser`,
+        {
+          email: userInfo.user.email,
+        },
+        {
+          validateStatus: function (status) {
+            return status < 500;
+          },
+        },
+      );
 
       if (existingUser.data.exists) {
         setLoading(true);
-        setModalVisible(true);
+
         setMessage('Signing in with Google...');
 
         const googleCredential = auth.GoogleAuthProvider.credential(
@@ -117,10 +112,11 @@ const Login = ({navigation}) => {
         await auth().signInWithCredential(googleCredential);
 
         const {givenName, email, photo} = userInfo.user;
-        login({name: givenName, email, profile_pic: photo},"google");
+        login({name: givenName, email, profile_pic: photo}, 'google');
         setMessage('Signing Successful with Google...');
+        setSuccess(true);
         setTimeout(() => {
-          setModalVisible(false);
+          setLoading(false);
           navigation.navigate('Tab');
         }, 5000);
       } else {
@@ -128,6 +124,7 @@ const Login = ({navigation}) => {
         await GoogleSignin.revokeAccess();
       }
     } catch (error) {
+      await GoogleSignin.revokeAccess();
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         Alert.alert('User cancelled the login flow');
       } else if (error.code === statusCodes.IN_PROGRESS) {
@@ -145,7 +142,6 @@ const Login = ({navigation}) => {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView style={styles.container}>
         <ScrollView contentContainerStyle={styles.scrollContainer}>
-        
           <Text style={styles.title}>Hello Again !</Text>
           <Text style={styles.subtitle}>
             Fill your details or continue with social media
@@ -176,7 +172,11 @@ const Login = ({navigation}) => {
               </Text>
             </TouchableOpacity>
           </View>
-          <TouchableOpacity style={styles.recoveryButton} onPress={()=>{navigation.navigate("ForgotPassword")}}>
+          <TouchableOpacity
+            style={styles.recoveryButton}
+            onPress={() => {
+              navigation.navigate('ForgotPassword');
+            }}>
             <Text style={styles.recoveryText}>Forgot Password ?</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.signInButton} onPress={handleSignIn}>
@@ -201,16 +201,21 @@ const Login = ({navigation}) => {
             </TouchableOpacity>
           </View>
           <Modal transparent={true} animationType="slide" visible={loading}>
-            <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
-              <View style={styles.modalBackground}>
-                <TouchableWithoutFeedback>
-                  <View style={styles.activityIndicatorWrapper}>
-                    <ActivityIndicator size="large" color="#007bff" />
-                    <Text style={styles.loadingText}>{message}</Text>
-                  </View>
-                </TouchableWithoutFeedback>
+            <View style={styles.modalBackground}>
+              <View style={styles.activityIndicatorWrapper}>
+                {success ? (
+                  <Icon
+                    style={styles.successIcon}
+                    type="material"
+                    name="check"
+                    color="green"
+                    size={30}></Icon>
+                ) : (
+                  <ActivityIndicator size="large" color="#007bff" />
+                )}
+                <Text style={styles.loadingText}>{message}</Text>
               </View>
-            </TouchableWithoutFeedback>
+            </View>
           </Modal>
         </ScrollView>
       </SafeAreaView>
@@ -362,10 +367,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
   },
+  successIcon: {
+    borderWidth: 2,
+    borderRadius: 30,
+    borderColor: 'green',
+  },
   loadingText: {
     marginTop: 10,
     fontSize: 16,
     color: '#007bff',
+    fontFamily: 'Raleway-Medium',
   },
 });
 
