@@ -1,16 +1,35 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Text, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image,Alert,BackHandler} from 'react-native';
 
 import Home from '../pages/Home';
-import { Icon } from 'react-native-elements';
-
+import {Icon} from '@rneui/base';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useFocusEffect } from '@react-navigation/native';
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
+  useFocusEffect(
+    React.useCallback(()=>{
+      const onBackPress=()=>{
+        Alert.alert(
+          'Exit App',
+          'Do you want to exit?',
+          [
+            {text:'No',style:'cancel'},
+            {text:'Yes',onPress:()=>BackHandler.exitApp()}
+          ],
+          {cancelable:false}
+        )
+        return true;
+      };
+      BackHandler.addEventListener('hardwareBackPress',onBackPress);
+      return () => BackHandler.removeEventListener('hardwareBackPress',onBackPress);
+    },[])
+  )
   return (
     <Tab.Navigator
-    initialRouteName="Home"
+      initialRouteName="Home"
       screenOptions={({route}) => ({
         tabBarHideOnKeyboard: true,
         headerShown: false,
@@ -29,7 +48,12 @@ const TabNavigator = () => {
         component={Home}
         options={{
           tabBarIcon: ({focused}) => (
-            <Icon name='watch' type='feather' size={focused?30:20} color={focused?'red':'grey'}/>
+            <Icon
+              name="watch"
+              type="feather"
+              size={20}
+              color={focused ? 'red' : 'grey'}
+            />
           ),
         }}
       />
@@ -38,9 +62,10 @@ const TabNavigator = () => {
         component={Home}
         options={{
           tabBarIcon: ({focused}) => (
-            <Image
-              source={require('../assets/icons/fitness.png')}
-              style={{width: focused?40:20, height: focused?40:20}}
+            <MaterialCommunityIcons
+              name="weight-lifter"
+              size={20}
+              color={focused ? 'brown' : 'grey'}
             />
           ),
         }}
@@ -50,22 +75,12 @@ const TabNavigator = () => {
         component={Home}
         options={{
           tabBarIcon: ({focused}) => (
-            <Image
-              source={require('../assets/icons/home.png')}
-              style={{width: focused?40:20, height: focused?40:20}}
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Timer"
-        component={Home}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <Image
-              source={require('../assets/icons/time.png')}
-              style={{width: focused?40:20, height: focused?40:20}}
-            />
+            <View style={styles.homeIconContainer}>
+              <Image
+                source={require('../assets/icons/home.png')}
+                style={styles.homeIcon}
+              />
+            </View>
           ),
         }}
       />
@@ -74,7 +89,25 @@ const TabNavigator = () => {
         component={Home}
         options={{
           tabBarIcon: ({focused}) => (
-            <Icon name='activity' type='feather' size={focused?30:20} color={focused?'green':'grey'}/>
+            <Icon
+              name="activity"
+              type="feather"
+              size={20}
+              color={focused ? 'green' : 'grey'}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Account"
+        component={Home}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <MaterialCommunityIcons
+              name="account-star-outline"
+              size={20}
+              color={focused ? 'orange' : 'grey'}
+            />
           ),
         }}
       />
@@ -87,9 +120,22 @@ const styles = StyleSheet.create({
     height: 50,
     position: 'absolute',
     backgroundColor: '#fff',
-    // elevation: 2,
+    // bottom:50,
+    color:'#000',
     borderTopLeftRadius: 23,
     borderTopRightRadius: 23,
+  },
+  homeIconContainer: {
+    backgroundColor: 'white',
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    padding: 12,
+    borderWidth: 0.2,
+    borderColor: '#2196F3FF',
+  },
+  homeIcon: {
+    width: 25,
+    height: 25,
   },
 });
 

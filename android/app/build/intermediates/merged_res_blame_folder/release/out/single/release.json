@@ -1,11 +1,27 @@
 [
     {
+        "merged": "com.quantifi.app-merged_res-42:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.quantifi.app-main-43:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "com.quantifi.app-res-36:/drawable-mdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "com.quantifi.app-merged_res-42:/mipmap-xxxhdpi_ic_launcher_monochrome.png.flat",
+        "source": "com.quantifi.app-main-43:/mipmap-xxxhdpi/ic_launcher_monochrome.png"
+    },
+    {
         "merged": "com.quantifi.app-merged_res-42:/mipmap-xxhdpi_ic_launcher_background.png.flat",
         "source": "com.quantifi.app-main-43:/mipmap-xxhdpi/ic_launcher_background.png"
     },
     {
-        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_icons_fitness.png.flat",
-        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_icons_fitness.png"
+        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_images_viewprogress.png.flat",
+        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_images_viewprogress.png"
+    },
+    {
+        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_node_modules_reactnativeratings_dist_images_airbnbstar.png.flat",
+        "source": "com.quantifi.app-res-36:/drawable-mdpi/node_modules_reactnativeratings_dist_images_airbnbstar.png"
     },
     {
         "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_images_google_logo.png.flat",
@@ -16,6 +32,14 @@
         "source": "com.quantifi.app-res-36:/drawable-mdpi/node_modules_reactnativeratings_dist_images_star.png"
     },
     {
+        "merged": "com.quantifi.app-merged_res-42:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.quantifi.app-main-43:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.quantifi.app-merged_res-42:/drawable-xxhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "com.quantifi.app-res-36:/drawable-xxhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
         "merged": "com.quantifi.app-merged_res-42:/mipmap-hdpi_ic_launcher_foreground.png.flat",
         "source": "com.quantifi.app-main-43:/mipmap-hdpi/ic_launcher_foreground.png"
     },
@@ -24,12 +48,20 @@
         "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_images_onboarding_5.png"
     },
     {
+        "merged": "com.quantifi.app-merged_res-42:/mipmap-mdpi_ic_launcher_background.png.flat",
+        "source": "com.quantifi.app-main-43:/mipmap-mdpi/ic_launcher_background.png"
+    },
+    {
         "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_node_modules_reactnativeratings_dist_images_airbnbstarselected.png.flat",
         "source": "com.quantifi.app-res-36:/drawable-mdpi/node_modules_reactnativeratings_dist_images_airbnbstarselected.png"
     },
     {
-        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_icons_health.png.flat",
-        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_icons_health.png"
+        "merged": "com.quantifi.app-merged_res-42:/mipmap-hdpi_ic_launcher_monochrome.png.flat",
+        "source": "com.quantifi.app-main-43:/mipmap-hdpi/ic_launcher_monochrome.png"
+    },
+    {
+        "merged": "com.quantifi.app-merged_res-42:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.quantifi.app-main-43:/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
         "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_images_insights.png.flat",
@@ -48,94 +80,6 @@
         "source": "com.quantifi.app-res-36:/drawable-mdpi/node_modules_reactnativeratings_dist_images_bell.png"
     },
     {
-        "merged": "com.quantifi.app-merged_res-42:/mipmap-mdpi_ic_launcher_monochrome.png.flat",
-        "source": "com.quantifi.app-main-43:/mipmap-mdpi/ic_launcher_monochrome.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_images_onboarding_8.jpg.flat",
-        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_images_onboarding_8.jpg"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/mipmap-xxhdpi_ic_launcher_monochrome.png.flat",
-        "source": "com.quantifi.app-main-43:/mipmap-xxhdpi/ic_launcher_monochrome.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/mipmap-xxxhdpi_ic_launcher_background.png.flat",
-        "source": "com.quantifi.app-main-43:/mipmap-xxxhdpi/ic_launcher_background.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.quantifi.app-main-43:/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/mipmap-hdpi_ic_launcher_background.png.flat",
-        "source": "com.quantifi.app-main-43:/mipmap-hdpi/ic_launcher_background.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_images_startworkout.png.flat",
-        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_images_startworkout.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_images_logsleep.png.flat",
-        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_images_logsleep.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_icons_appicon.jpg.flat",
-        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_icons_appicon.jpg"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/mipmap-xhdpi_ic_launcher_background.png.flat",
-        "source": "com.quantifi.app-main-43:/mipmap-xhdpi/ic_launcher_background.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_images_profile.png.flat",
-        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_images_profile.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.quantifi.app-main-43:/mipmap-xxhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
-        "source": "com.quantifi.app-res-36:/drawable-mdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/mipmap-xxxhdpi_ic_launcher_monochrome.png.flat",
-        "source": "com.quantifi.app-main-43:/mipmap-xxxhdpi/ic_launcher_monochrome.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_images_viewprogress.png.flat",
-        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_images_viewprogress.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_node_modules_reactnativeratings_dist_images_airbnbstar.png.flat",
-        "source": "com.quantifi.app-res-36:/drawable-mdpi/node_modules_reactnativeratings_dist_images_airbnbstar.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.quantifi.app-main-43:/mipmap-hdpi/ic_launcher.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/drawable-xxhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
-        "source": "com.quantifi.app-res-36:/drawable-xxhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/mipmap-mdpi_ic_launcher_background.png.flat",
-        "source": "com.quantifi.app-main-43:/mipmap-mdpi/ic_launcher_background.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/mipmap-hdpi_ic_launcher_monochrome.png.flat",
-        "source": "com.quantifi.app-main-43:/mipmap-hdpi/ic_launcher_monochrome.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.quantifi.app-main-43:/mipmap-xxxhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_icons_time.png.flat",
-        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_icons_time.png"
-    },
-    {
         "merged": "com.quantifi.app-merged_res-42:/mipmap-mdpi_ic_launcher_foreground.png.flat",
         "source": "com.quantifi.app-main-43:/mipmap-mdpi/ic_launcher_foreground.png"
     },
@@ -144,8 +88,12 @@
         "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_icons_home.png"
     },
     {
-        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_icons_speed.png.flat",
-        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_icons_speed.png"
+        "merged": "com.quantifi.app-merged_res-42:/mipmap-mdpi_ic_launcher_monochrome.png.flat",
+        "source": "com.quantifi.app-main-43:/mipmap-mdpi/ic_launcher_monochrome.png"
+    },
+    {
+        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_images_onboarding_8.jpg.flat",
+        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_images_onboarding_8.jpg"
     },
     {
         "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_node_modules_reactnativeratings_dist_images_heart.png.flat",
@@ -160,6 +108,14 @@
         "source": "com.quantifi.app-res-36:/drawable-xxxhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
     },
     {
+        "merged": "com.quantifi.app-merged_res-42:/mipmap-xxhdpi_ic_launcher_monochrome.png.flat",
+        "source": "com.quantifi.app-main-43:/mipmap-xxhdpi/ic_launcher_monochrome.png"
+    },
+    {
+        "merged": "com.quantifi.app-merged_res-42:/mipmap-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "com.quantifi.app-main-43:/mipmap-xxxhdpi/ic_launcher_background.png"
+    },
+    {
         "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_images_onboarding_7_1.png.flat",
         "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_images_onboarding_7_1.png"
     },
@@ -168,16 +124,44 @@
         "source": "com.quantifi.app-main-43:/mipmap-mdpi/ic_launcher.png"
     },
     {
+        "merged": "com.quantifi.app-merged_res-42:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.quantifi.app-main-43:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
         "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_node_modules_reactnavigation_elements_src_assets_backiconmask.png.flat",
         "source": "com.quantifi.app-res-36:/drawable-mdpi/node_modules_reactnavigation_elements_src_assets_backiconmask.png"
+    },
+    {
+        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_images_startworkout.png.flat",
+        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_images_startworkout.png"
+    },
+    {
+        "merged": "com.quantifi.app-merged_res-42:/mipmap-hdpi_ic_launcher_background.png.flat",
+        "source": "com.quantifi.app-main-43:/mipmap-hdpi/ic_launcher_background.png"
     },
     {
         "merged": "com.quantifi.app-merged_res-42:/drawable-hdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
         "source": "com.quantifi.app-res-36:/drawable-hdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
     },
     {
+        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_images_logsleep.png.flat",
+        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_images_logsleep.png"
+    },
+    {
+        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_icons_appicon.jpg.flat",
+        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_icons_appicon.jpg"
+    },
+    {
         "merged": "com.quantifi.app-merged_res-42:/drawable-xhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
         "source": "com.quantifi.app-res-36:/drawable-xhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "com.quantifi.app-merged_res-42:/mipmap-xhdpi_ic_launcher_background.png.flat",
+        "source": "com.quantifi.app-main-43:/mipmap-xhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.quantifi.app-merged_res-42:/drawable-mdpi_assets_images_profile.png.flat",
+        "source": "com.quantifi.app-res-36:/drawable-mdpi/assets_images_profile.png"
     },
     {
         "merged": "com.quantifi.app-merged_res-42:/drawable_rn_edit_text_material.xml.flat",

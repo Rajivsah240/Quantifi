@@ -1,11 +1,7 @@
 R_DEF: Internal format may change without notice
 local
 drawable assets_icons_appicon
-drawable assets_icons_fitness
-drawable assets_icons_health
 drawable assets_icons_home
-drawable assets_icons_speed
-drawable assets_icons_time
 drawable assets_images_google_logo
 drawable assets_images_insights
 drawable assets_images_logsleep

@@ -1,22 +1,46 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   Dimensions,
   TouchableOpacity,
+  BackHandler
 } from 'react-native';
-import {Avatar, Icon} from '@rneui/themed';
-import Animated, {SlideInLeft, SlideOutLeft} from 'react-native-reanimated';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {userContext} from '../AuthContext';
+import { useIsFocused } from '@react-navigation/native';
+
+import { Avatar, Icon } from '@rneui/themed';
+import Animated, { SlideInLeft, SlideOutLeft } from 'react-native-reanimated';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { userContext } from '../AuthContext';
 import Divider from './Divider';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
-const SideMenu = ({navigation, user, toggleMenu}) => {
-  const {logout, signInMethod} = userContext();
+const SideMenu = ({ navigation, user, toggleMenu }) => {
+  const { logout, signInMethod } = userContext();
   const [menuVisible, setMenuVisible] = useState(false);
+  const isFocused = useIsFocused();
+
+  useEffect(()=>{
+    if(!isFocused){
+      toggleMenu();
+    }  
+  })
+
+  useEffect(()=>{
+    const backAction = () => {
+      toggleMenu();
+      return true;
+    };
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+    return () => backHandler.remove();
+  
+  })
+
 
   const handleLogout = async () => {
     if (signInMethod === 'google') {
@@ -24,10 +48,8 @@ const SideMenu = ({navigation, user, toggleMenu}) => {
       if (isSignedIn) {
         await GoogleSignin.revokeAccess();
         console.log('Google access revoked successfully');
-      }
-      else{
+      } else {
         console.log('Google access could not be revoked');
-      
       }
     }
     logout();
@@ -40,131 +62,151 @@ const SideMenu = ({navigation, user, toggleMenu}) => {
   };
 
   return (
-    <Animated.View
-      entering={SlideInLeft}
-      exiting={SlideOutLeft}
-      style={styles.menuContainer}>
-      <View style={styles.header}>
-        <Text style={styles.companyName}>Quantifi</Text>
-        <Icon name="search" type="feather" color="black" />
-      </View>
-      <TouchableOpacity
-        style={styles.premiumButton}
-        onPress={() => navigation.navigate('Premium')}>
-        <Text style={styles.premiumButtonText}>Go Premium</Text>
-      </TouchableOpacity>
+    <View style={styles.container}>
+      {/* Overlay */}
+      <TouchableOpacity style={styles.overlay} onPress={toggleMenu} />
+      <Animated.View
+        entering={SlideInLeft}
+        exiting={SlideOutLeft}
+        style={styles.menuContainer}
+      >
+        <View style={styles.header}>
+          <Text style={styles.companyName}>Quantifi</Text>
+          <Icon name="search" type="feather" color="black" />
+        </View>
+        <TouchableOpacity
+          style={styles.premiumButton}
+          onPress={() => navigation.navigate('Premium')}
+        >
+          <Text style={styles.premiumButtonText}>Go Premium</Text>
+        </TouchableOpacity>
 
-      {/* <View style={styles.switchContainer}>
-        <TouchableOpacity>
-          <Text style={styles.switchTextActive}>Personal</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.switchText}>Business</Text>
-        </TouchableOpacity>
-      </View> */}
-      <Divider />
-      <View style={styles.menuItems}>
-        <TouchableOpacity style={styles.menuItem}>
-          <Icon name="grid" type="feather" color="grey" />
-          <Text style={styles.menuItemText}>Dashboard</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Icon name="list" type="feather" color="grey" />
-          <Text style={styles.menuItemText}>Workouts</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Icon name="bar-chart-2" type="feather" color="grey" />
-          <Text style={styles.menuItemText}>Progress</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Icon name="heart" type="feather" color="grey" />
-          <Text style={styles.menuItemText}>Nutrition</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Icon name="users" type="feather" color="grey" />
-          <Text style={styles.menuItemText}>Community</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Icon name="settings" type="feather" color="grey" />
-          <Text style={styles.menuItemText}>Settings</Text>
-        </TouchableOpacity>
-      </View>
-      <Divider />
-      <View style={styles.notifications}>
-        <TouchableOpacity style={styles.menuItem}>
-          <Icon name="bell" type="feather" color="grey" />
-          <Text style={styles.menuItemText}>Notifications</Text>
-          <View style={styles.notificationBadge}>
-            <Text style={styles.notificationText}>24</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Icon name="message-square" type="feather" color="grey" />
-          <Text style={styles.menuItemText}>Chat</Text>
-          <View style={styles.chatBadge}>
-            <Text style={styles.chatText}>8</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.footer}>
-        <View style={styles.footerContainer}>
-          <View style={styles.userContainer}>
-            {user && (
-              <Avatar
-                rounded
-                size={40}
-                source={{uri: user.profile_pic}}
-                containerStyle={styles.avatar}
+        <Divider />
+        <View style={styles.menuItems}>
+          <TouchableOpacity style={styles.menuItem}>
+            <Icon name="grid" type="feather" color="grey" />
+            <Text style={styles.menuItemText}>Dashboard</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuItem}>
+            <Icon name="list" type="feather" color="grey" />
+            <Text style={styles.menuItemText}>Workouts</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuItem}>
+            <Icon name="bar-chart-2" type="feather" color="grey" />
+            <Text style={styles.menuItemText}>Progress</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuItem}>
+            <Icon name="heart" type="feather" color="grey" />
+            <Text style={styles.menuItemText}>Nutrition</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuItem}>
+            <Icon name="users" type="feather" color="grey" />
+            <Text style={styles.menuItemText}>Community</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuItem}>
+            <Icon name="settings" type="feather" color="grey" />
+            <Text style={styles.menuItemText}>Settings</Text>
+          </TouchableOpacity>
+        </View>
+        <Divider />
+        <View style={styles.notifications}>
+          <TouchableOpacity style={styles.menuItem}>
+            <Icon name="bell" type="feather" color="grey" />
+            <Text style={styles.menuItemText}>Notifications</Text>
+            <View style={styles.notificationBadge}>
+              <Text style={styles.notificationText}>24</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuItem}>
+            <Icon name="message-square" type="feather" color="grey" />
+            <Text style={styles.menuItemText}>Chat</Text>
+            <View style={styles.chatBadge}>
+              <Text style={styles.chatText}>8</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.footer}>
+          <View style={styles.footerContainer}>
+            <View style={styles.userContainer}>
+              {user && (
+                <Avatar
+                  rounded
+                  size={40}
+                  source={{ uri: user.profile_pic }}
+                  containerStyle={styles.avatar}
+                />
+              )}
+              <View style={styles.userInfo}>
+                <Text style={styles.userName}>{user ? user.name : 'Guest'}</Text>
+                <Text style={styles.userEmail}>{user ? user.email : ''}</Text>
+              </View>
+            </View>
+            <TouchableOpacity
+              onPress={toggleMenuVisibility}
+              style={styles.menuButton}
+            >
+              <Icon
+                name="dots-three-vertical"
+                type="entypo"
+                size={15}
+                color="black"
               />
+            </TouchableOpacity>
+            {menuVisible && (
+              <View style={styles.menuOptions}>
+                <TouchableOpacity
+                  onPress={handleLogout}
+                  style={styles.logoutOption}
+                >
+                  <Text style={styles.logoutText}>Logout</Text>
+                </TouchableOpacity>
+              </View>
             )}
-            <View style={styles.userInfo}>
-              <Text style={styles.userName}>{user ? user.name : 'Guest'}</Text>
-              <Text style={styles.userEmail}>{user ? user.email : ''}</Text>
-            </View>
           </View>
-          <TouchableOpacity
-            onPress={toggleMenuVisibility}
-            style={styles.menuButton}>
-            <Icon
-              name="dots-three-vertical"
-              type="entypo"
-              size={15}
-              color="black"
-            />
-          </TouchableOpacity>
-          {menuVisible && (
-            <View style={styles.menuOptions}>
-              <TouchableOpacity
-                onPress={handleLogout}
-                style={styles.logoutOption}>
-                <Text style={styles.logoutText}>Logout</Text>
-              </TouchableOpacity>
-            </View>
-          )}
+          <View style={styles.rulesContainer}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('TermsCondition');
+              }}
+              style={styles.rulesButton}
+            >
+              <Text style={styles.rulesButtonText}>Terms & Conditions</Text>
+            </TouchableOpacity>
+            <Text style={styles.rulesButtonDivider}> | </Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('PrivacyPolicy');
+              }}
+              style={styles.rulesButton}
+            >
+              <Text style={styles.rulesButtonText}>Privacy Policy</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={styles.rulesContainer}>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('TermsCondition');
-            }}
-            style={styles.rulesButton}>
-            <Text style={styles.rulesButtonText}>Terms & Conditions</Text>
-          </TouchableOpacity>
-          <Text style={styles.rulesButtonDivider}> | </Text>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('PrivacyPolicy');
-            }}
-            style={styles.rulesButton}>
-            <Text style={styles.rulesButtonText}>Privacy Policy</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </Animated.View>
+      </Animated.View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    width: width,
+    height: height,
+    zIndex: 2,
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    zIndex: 1,
+  },
   menuContainer: {
     position: 'absolute',
     top: 0,
@@ -175,7 +217,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 20,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 5,
@@ -208,20 +250,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'JosefinSans-Bold',
   },
-  switchContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 30,
-  },
-  switchText: {
-    fontSize: 16,
-    color: 'grey',
-  },
-  switchTextActive: {
-    fontSize: 16,
-    color: 'blue',
-    fontWeight: 'bold',
-  },
   menuItems: {
     // flex: 1,
   },
@@ -234,6 +262,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginLeft: 15,
     color: 'black',
+    fontFamily: 'Raleway-Regular',
   },
   notifications: {
     marginBottom: 40,
@@ -316,7 +345,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 10,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 5,
@@ -343,6 +372,7 @@ const styles = StyleSheet.create({
   rulesButtonText: {
     color: '#2196F3FF',
     fontSize: 8,
+    fontFamily: 'Raleway-Regular',
     // borderWidth:0.5
   },
   rulesButtonDivider: {
