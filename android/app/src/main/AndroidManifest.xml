@@ -1,6 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <queries>
+        <package android:name="com.phonepe.app" />                        //Phonepe
+        <package android:name="com.google.android.apps.nbu.paisa.user" /> // GPay
+        <package android:name="net.one97.paytm" />                        // Paytm
+        <package android:name="in.org.npci.upiapp" />                     // BHIM
+        <package android:name="in.amazon.mShop.android.shopping" />       // AmazonPay
+    </queries>
 
     <application
       android:name=".MainApplication"

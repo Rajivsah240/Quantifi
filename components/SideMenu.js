@@ -76,7 +76,7 @@ const SideMenu = ({ navigation, user, toggleMenu }) => {
         </View>
         <TouchableOpacity
           style={styles.premiumButton}
-          onPress={() => navigation.navigate('Premium')}
+          onPress={() => navigation.navigate('PremiumPlans')}
         >
           <Text style={styles.premiumButtonText}>Go Premium</Text>
         </TouchableOpacity>

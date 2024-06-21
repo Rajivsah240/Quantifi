@@ -659,6 +659,19 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name=":@@:react-native-upi-payment::release"
+      jars="C:\Users\rajiv\.gradle\caches\transforms-4\079c303f2d6ad6405cda01c8a7cc8019\transformed\out\jars\classes.jar;C:\Users\rajiv\.gradle\caches\transforms-4\079c303f2d6ad6405cda01c8a7cc8019\transformed\out\jars\libs\R.jar"
+      resolved="quantifi:react-native-upi-payment:unspecified"
+      folder="C:\Users\rajiv\.gradle\caches\transforms-4\079c303f2d6ad6405cda01c8a7cc8019\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name=":@@:react-native-vector-icons::release"
       jars="C:\Users\rajiv\.gradle\caches\transforms-4\066e09538fe7684cbd4384769db67c2c\transformed\out\jars\classes.jar;C:\Users\rajiv\.gradle\caches\transforms-4\066e09538fe7684cbd4384769db67c2c\transformed\out\jars\libs\R.jar"
       resolved="quantifi:react-native-vector-icons:unspecified"
@@ -1488,6 +1501,10 @@
       jars="C:\Users\rajiv\.gradle\caches\modules-2\files-2.1\com.google.firebase\firebase-annotations\16.2.0\ba0806703ca285d03fa9c888b5868f101134a501\firebase-annotations-16.2.0.jar"
       resolved="com.google.firebase:firebase-annotations:16.2.0"/>
   <library
+      name="com.google.code.gson:gson:2.10.1@jar"
+      jars="C:\Users\rajiv\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.10.1\b3add478d4382b78ea20b1671390a858002feb6c\gson-2.10.1.jar"
+      resolved="com.google.code.gson:gson:2.10.1"/>
+  <library
       name="com.parse.bolts:bolts-tasks:1.4.0@jar"
       jars="C:\Users\rajiv\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
       resolved="com.parse.bolts:bolts-tasks:1.4.0"/>
@@ -1524,10 +1541,6 @@
       name="io.perfmark:perfmark-api:0.26.0@jar"
       jars="C:\Users\rajiv\.gradle\caches\modules-2\files-2.1\io.perfmark\perfmark-api\0.26.0\ef65452adaf20bf7d12ef55913aba24037b82738\perfmark-api-0.26.0.jar"
       resolved="io.perfmark:perfmark-api:0.26.0"/>
-  <library
-      name="com.google.code.gson:gson:2.10.1@jar"
-      jars="C:\Users\rajiv\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.10.1\b3add478d4382b78ea20b1671390a858002feb6c\gson-2.10.1.jar"
-      resolved="com.google.code.gson:gson:2.10.1"/>
   <library
       name="com.google.android:annotations:4.1.1.4@jar"
       jars="C:\Users\rajiv\.gradle\caches\modules-2\files-2.1\com.google.android\annotations\4.1.1.4\a1678ba907bf92691d879fef34e1a187038f9259\annotations-4.1.1.4.jar"

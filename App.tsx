@@ -21,6 +21,7 @@ import OTPVerification from './pages/OtpVerification';
 import TermsConditions from './pages/TermsConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import CancellationRefundPolicy from './pages/CancellationRefundPolicy';
+import PremiumPlans from './pages/PremiumPlans';
 const Stack = createStackNavigator();
 
 
@@ -44,6 +45,7 @@ const App = () => {
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Tab" component={TabNavigator} />
           <Stack.Screen name="Home" component={Home}/>
+          <Stack.Screen name="PremiumPlans" component={PremiumPlans}/>
           <Stack.Screen name="TermsCondition" component={TermsConditions}/>
           <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy}/>
           <Stack.Screen name="Premium" component={CancellationRefundPolicy}/>

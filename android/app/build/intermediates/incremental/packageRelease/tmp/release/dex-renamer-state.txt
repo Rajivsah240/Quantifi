@@ -1,4 +1,4 @@
-#Fri Jun 14 23:44:27 IST 2024
+#Sun Jun 16 17:32:12 IST 2024
 base.0=E\:\\Programs Solved\\Android Development\\Quantifi\\quantifi\\android\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
 base.1=E\:\\Programs Solved\\Android Development\\Quantifi\\quantifi\\android\\app\\build\\intermediates\\global_synthetics_dex\\release\\classes.dex
 base.2=E\:\\Programs Solved\\Android Development\\Quantifi\\quantifi\\android\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes2.dex

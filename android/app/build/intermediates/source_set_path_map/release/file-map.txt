@@ -57,5 +57,6 @@ com.quantifi.app-packaged_res-55 E:\Programs Solved\Android Development\Quantifi
 com.quantifi.app-packaged_res-56 E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-safe-area-context\android\build\intermediates\packaged_res\release
 com.quantifi.app-packaged_res-57 E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-screens\android\build\intermediates\packaged_res\release
 com.quantifi.app-packaged_res-58 E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-svg\android\build\intermediates\packaged_res\release
-com.quantifi.app-packaged_res-59 E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-vector-icons\android\build\intermediates\packaged_res\release
-com.quantifi.app-packaged_res-60 E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-zeroconf\android\build\intermediates\packaged_res\release
+com.quantifi.app-packaged_res-59 E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-upi-payment\android\build\intermediates\packaged_res\release
+com.quantifi.app-packaged_res-60 E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-vector-icons\android\build\intermediates\packaged_res\release
+com.quantifi.app-packaged_res-61 E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-zeroconf\android\build\intermediates\packaged_res\release

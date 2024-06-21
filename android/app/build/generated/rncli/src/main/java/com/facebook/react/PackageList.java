@@ -39,6 +39,8 @@ import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 import com.swmansion.rnscreens.RNScreensPackage;
 // react-native-svg
 import com.horcrux.svg.SvgPackage;
+// react-native-upi-payment
+import com.upi.payment.UpiPaymentPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
 // react-native-zeroconf
@@ -102,6 +104,7 @@ public class PackageList {
       new SafeAreaContextPackage(),
       new RNScreensPackage(),
       new SvgPackage(),
+      new UpiPaymentPackage(),
       new VectorIconsPackage(),
       new ZeroconfReactPackage()
     ));
