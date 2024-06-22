@@ -22,6 +22,11 @@ import TermsConditions from './pages/TermsConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import CancellationRefundPolicy from './pages/CancellationRefundPolicy';
 import PremiumPlans from './pages/PremiumPlans';
+import { SocketProvider } from './SocketContext';
+import Chat from './pages/Chat';
+import CreateGroup from './pages/CreateGroup';
+import JoinGroup from './pages/JoinGroup';
+import ChatScreen from './pages/ChatScreen';
 const Stack = createStackNavigator();
 
 
@@ -33,6 +38,7 @@ const App = () => {
     });
   }, []);
   return (
+    <SocketProvider>
     <AuthProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Splash' screenOptions={{ headerShown: false }}>
@@ -45,6 +51,10 @@ const App = () => {
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Tab" component={TabNavigator} />
           <Stack.Screen name="Home" component={Home}/>
+          <Stack.Screen name="ChatScreen" component={ChatScreen} />
+          <Stack.Screen name="Chat" component={Chat} />
+          <Stack.Screen name="CreateGroup" component={CreateGroup} />
+          <Stack.Screen name="JoinGroup" component={JoinGroup} />
           <Stack.Screen name="PremiumPlans" component={PremiumPlans}/>
           <Stack.Screen name="TermsCondition" component={TermsConditions}/>
           <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy}/>
@@ -52,6 +62,7 @@ const App = () => {
         </Stack.Navigator>
       </NavigationContainer>
     </AuthProvider>
+    </SocketProvider>
   )
 };
 

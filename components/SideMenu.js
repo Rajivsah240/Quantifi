@@ -1,34 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
   StyleSheet,
   Dimensions,
   TouchableOpacity,
-  BackHandler
+  BackHandler,
 } from 'react-native';
-import { useIsFocused } from '@react-navigation/native';
+import {useIsFocused} from '@react-navigation/native';
 
-import { Avatar, Icon } from '@rneui/themed';
-import Animated, { SlideInLeft, SlideOutLeft } from 'react-native-reanimated';
-import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import { userContext } from '../AuthContext';
+import {Avatar, Icon} from '@rneui/themed';
+import Animated, {SlideInLeft, SlideOutLeft} from 'react-native-reanimated';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import {userContext} from '../AuthContext';
 import Divider from './Divider';
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
-const SideMenu = ({ navigation, user, toggleMenu }) => {
-  const { logout, signInMethod } = userContext();
+const SideMenu = ({navigation, user, toggleMenu}) => {
+  const {logout, signInMethod} = userContext();
   const [menuVisible, setMenuVisible] = useState(false);
   const isFocused = useIsFocused();
 
-  useEffect(()=>{
-    if(!isFocused){
+  useEffect(() => {
+    if (!isFocused) {
       toggleMenu();
-    }  
-  })
+    }
+  }, [isFocused]);
 
-  useEffect(()=>{
+  useEffect(() => {
     const backAction = () => {
       toggleMenu();
       return true;
@@ -38,9 +38,7 @@ const SideMenu = ({ navigation, user, toggleMenu }) => {
       backAction,
     );
     return () => backHandler.remove();
-  
-  })
-
+  }, []);
 
   const handleLogout = async () => {
     if (signInMethod === 'google') {
@@ -68,16 +66,14 @@ const SideMenu = ({ navigation, user, toggleMenu }) => {
       <Animated.View
         entering={SlideInLeft}
         exiting={SlideOutLeft}
-        style={styles.menuContainer}
-      >
+        style={styles.menuContainer}>
         <View style={styles.header}>
           <Text style={styles.companyName}>Quantifi</Text>
           <Icon name="search" type="feather" color="black" />
         </View>
         <TouchableOpacity
           style={styles.premiumButton}
-          onPress={() => navigation.navigate('PremiumPlans')}
-        >
+          onPress={() => navigation.navigate('PremiumPlans')}>
           <Text style={styles.premiumButtonText}>Go Premium</Text>
         </TouchableOpacity>
 
@@ -117,7 +113,11 @@ const SideMenu = ({ navigation, user, toggleMenu }) => {
               <Text style={styles.notificationText}>24</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuItem}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('ChatScreen');
+            }}
+            style={styles.menuItem}>
             <Icon name="message-square" type="feather" color="grey" />
             <Text style={styles.menuItemText}>Chat</Text>
             <View style={styles.chatBadge}>
@@ -132,19 +132,20 @@ const SideMenu = ({ navigation, user, toggleMenu }) => {
                 <Avatar
                   rounded
                   size={40}
-                  source={{ uri: user.profile_pic }}
+                  source={{uri: user.profile_pic}}
                   containerStyle={styles.avatar}
                 />
               )}
               <View style={styles.userInfo}>
-                <Text style={styles.userName}>{user ? user.name : 'Guest'}</Text>
+                <Text style={styles.userName}>
+                  {user ? user.name : 'Guest'}
+                </Text>
                 <Text style={styles.userEmail}>{user ? user.email : ''}</Text>
               </View>
             </View>
             <TouchableOpacity
               onPress={toggleMenuVisibility}
-              style={styles.menuButton}
-            >
+              style={styles.menuButton}>
               <Icon
                 name="dots-three-vertical"
                 type="entypo"
@@ -156,8 +157,7 @@ const SideMenu = ({ navigation, user, toggleMenu }) => {
               <View style={styles.menuOptions}>
                 <TouchableOpacity
                   onPress={handleLogout}
-                  style={styles.logoutOption}
-                >
+                  style={styles.logoutOption}>
                   <Text style={styles.logoutText}>Logout</Text>
                 </TouchableOpacity>
               </View>
@@ -168,8 +168,7 @@ const SideMenu = ({ navigation, user, toggleMenu }) => {
               onPress={() => {
                 navigation.navigate('TermsCondition');
               }}
-              style={styles.rulesButton}
-            >
+              style={styles.rulesButton}>
               <Text style={styles.rulesButtonText}>Terms & Conditions</Text>
             </TouchableOpacity>
             <Text style={styles.rulesButtonDivider}> | </Text>
@@ -177,8 +176,7 @@ const SideMenu = ({ navigation, user, toggleMenu }) => {
               onPress={() => {
                 navigation.navigate('PrivacyPolicy');
               }}
-              style={styles.rulesButton}
-            >
+              style={styles.rulesButton}>
               <Text style={styles.rulesButtonText}>Privacy Policy</Text>
             </TouchableOpacity>
           </View>
@@ -217,7 +215,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 20,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 5,
@@ -345,7 +343,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 10,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 5,

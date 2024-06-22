@@ -25,6 +25,10 @@ import io.invertase.firebase.firestore.ReactNativeFirebaseFirestorePackage;
 import io.invertase.firebase.storage.ReactNativeFirebaseStoragePackage;
 // @react-native-google-signin/google-signin
 import com.reactnativegooglesignin.RNGoogleSigninPackage;
+// react-native-document-picker
+import com.reactnativedocumentpicker.RNDocumentPickerPackage;
+// react-native-file-viewer
+import com.vinzscam.reactnativefileviewer.RNFileViewerPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.RNGestureHandlerPackage;
 // react-native-image-picker
@@ -97,6 +101,8 @@ public class PackageList {
       new ReactNativeFirebaseFirestorePackage(),
       new ReactNativeFirebaseStoragePackage(),
       new RNGoogleSigninPackage(),
+      new RNDocumentPickerPackage(),
+      new RNFileViewerPackage(),
       new RNGestureHandlerPackage(),
       new ImagePickerPackage(),
       new PagerViewPackage(),
