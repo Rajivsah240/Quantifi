@@ -12,7 +12,6 @@ const Home = ({navigation}) => {
       <Header navigation={navigation}/>
       <Divider/>
       <HealthMetrics/>
-      {/* <CarouselItems/> */}
       <ParallaxCarousel/>
     </View>
   )

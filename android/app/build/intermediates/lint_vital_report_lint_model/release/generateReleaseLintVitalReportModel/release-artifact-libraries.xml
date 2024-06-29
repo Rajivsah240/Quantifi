@@ -494,6 +494,12 @@
       name=":@@:react-native-community_masked-view::release"
       project=":react-native-community_masked-view"/>
   <library
+      name=":@@:react-native-document-picker::release"
+      project=":react-native-document-picker"/>
+  <library
+      name=":@@:react-native-file-viewer::release"
+      project=":react-native-file-viewer"/>
+  <library
       name=":@@:react-native-gesture-handler::release"
       project=":react-native-gesture-handler"/>
   <library

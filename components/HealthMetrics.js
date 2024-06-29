@@ -8,14 +8,14 @@ const HealthMetrics = () => {
       <View style={styles.metricsContainer}>
         <MetricBox
           title='Heart Beat'
-          value='170'
+          value='--'
           unit='bpm'
           status='NORMAL'
-          color='rgba(251, 206, 255, 0.5)'
+          color='rgba(251, 206, 255, 0.5z)'
         />
         <MetricBox
           title='Weight'
-          value='58'
+          value='--'
           unit='kg'
           status='IDEAL'
           color='rgba(206, 255, 237, 0.5)'
@@ -24,16 +24,16 @@ const HealthMetrics = () => {
       <View style={styles.metricsContainer}>
         <MetricBox
           title='Sleep'
-          value='10.0'
+          value='--'
           unit='h/day'
           status='ENOUGH'
           color='rgba(248, 255, 206, 0.5)'
         />
         <MetricBox
           title='Blood Pressure'
-          value='58'
+          value='--'
           unit='mg/Hg'
-          status='IDEAL'
+          status='CRITICAL'
           color='rgba(242, 255, 157, 0.5)'
         />
       </View>

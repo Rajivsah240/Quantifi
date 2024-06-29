@@ -126,11 +126,13 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 23,
   },
   homeIconContainer: {
-    backgroundColor: 'white',
+    backgroundColor: '#fff',
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     padding: 12,
-    borderWidth: 0.2,
+    borderTopWidth: 0.2,
+    borderLeftWidth:0.2,
+    borderRightWidth:0.2,
     borderColor: '#2196F3FF',
   },
   homeIcon: {

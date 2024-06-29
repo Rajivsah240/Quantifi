@@ -1,11 +1,11 @@
-#Sat Jun 22 18:58:42 IST 2024
-base.0=E\:\\Programs Solved\\Android Development\\Quantifi\\quantifi\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=E\:\\Programs Solved\\Android Development\\Quantifi\\quantifi\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
-base.2=E\:\\Programs Solved\\Android Development\\Quantifi\\quantifi\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.3=E\:\\Programs Solved\\Android Development\\Quantifi\\quantifi\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
-base.4=E\:\\Programs Solved\\Android Development\\Quantifi\\quantifi\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
-base.5=E\:\\Programs Solved\\Android Development\\Quantifi\\quantifi\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
-base.6=E\:\\Programs Solved\\Android Development\\Quantifi\\quantifi\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex
+#Thu Jun 27 12:00:40 IST 2024
+base.0=E\:\\Programs Solved\\Android Development\\Quantifi\\frontend\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=E\:\\Programs Solved\\Android Development\\Quantifi\\frontend\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
+base.2=E\:\\Programs Solved\\Android Development\\Quantifi\\frontend\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.3=E\:\\Programs Solved\\Android Development\\Quantifi\\frontend\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
+base.4=E\:\\Programs Solved\\Android Development\\Quantifi\\frontend\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
+base.5=E\:\\Programs Solved\\Android Development\\Quantifi\\frontend\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+base.6=E\:\\Programs Solved\\Android Development\\Quantifi\\frontend\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=0/classes.dex

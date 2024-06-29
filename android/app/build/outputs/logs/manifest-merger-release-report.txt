@@ -11,6 +11,8 @@ MERGED from [:react-native-firebase_firestore] E:\Programs Solved\Android Develo
 MERGED from [:react-native-firebase_storage] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-30:12
 MERGED from [:react-native-google-signin_google-signin] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-google-signin\google-signin\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-document-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-document-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-19:12
 MERGED from [:react-native-gesture-handler] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-19:12
 MERGED from [:react-native-pager-view] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-pager-view\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
@@ -165,6 +167,8 @@ ADDED from E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\
 INJECTED from E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:12:5-30:19
 MERGED from [:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:8:5-28:19
 MERGED from [:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:8:5-28:19
+MERGED from [:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-17:19
+MERGED from [:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-17:19
 MERGED from [:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-17:19
 MERGED from [:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-17:19
 MERGED from [com.google.android.material:material:1.6.1] C:\Users\rajiv\.gradle\caches\transforms-4\5349654a033d3a0a7f56022977e742a4\transformed\material-1.6.1\AndroidManifest.xml:24:5-20
@@ -269,6 +273,10 @@ MERGED from [:react-native-firebase_app] E:\Programs Solved\Android Development\
 MERGED from [:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:6:5-44
 MERGED from [:react-native-google-signin_google-signin] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-google-signin\google-signin\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-google-signin_google-signin] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-google-signin\google-signin\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-document-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-document-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-document-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-document-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-gesture-handler] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-gesture-handler] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
@@ -539,6 +547,22 @@ ADDED from [:react-native-firebase_app] E:\Programs Solved\Android Development\Q
 		ADDED from [:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:27:13-35
 	android:name
 		ADDED from [:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:24:13-88
+provider#com.vinzscam.reactnativefileviewer.FileProvider
+ADDED from [:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:8:9-16:20
+	android:grantUriPermissions
+		ADDED from [:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-47
+	android:authorities
+		ADDED from [:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:10:13-60
+	android:exported
+		ADDED from [:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:9:13-75
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-15:70
+	android:resource
+		ADDED from [:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:15:17-67
+	android:name
+		ADDED from [:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:14:17-67
 provider#com.imagepicker.ImagePickerProvider
 ADDED from [:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:8:9-16:20
 	android:grantUriPermissions
@@ -549,12 +573,6 @@ ADDED from [:react-native-image-picker] E:\Programs Solved\Android Development\Q
 		ADDED from [:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-37
 	android:name
 		ADDED from [:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:9:13-63
-meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-15:70
-	android:resource
-		ADDED from [:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:15:17-67
-	android:name
-		ADDED from [:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:14:17-67
 meta-data#com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar
 ADDED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\rajiv\.gradle\caches\transforms-4\a47e8dd64ab2ecd23dcd31280177c43b\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:17:13-19:85
 	android:value

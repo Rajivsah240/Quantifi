@@ -9,38 +9,38 @@
 9        android:targetSdkVersion="34" />
 10
 11    <queries>
-11-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:4:5-10:15
+11-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:4:5-10:15
 12        <package android:name="com.phonepe.app" />
-12-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:5:9-51
-12-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:5:18-48
+12-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:5:9-51
+12-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:5:18-48
 13                        //Phonepe
 14        <package android:name="com.google.android.apps.nbu.paisa.user" />
-14-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:6:9-74
-14-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:6:18-71
+14-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:6:9-74
+14-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:6:18-71
 15 // GPay
 16        <package android:name="net.one97.paytm" />
-16-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:7:9-51
-16-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:7:18-48
+16-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:7:9-51
+16-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:7:18-48
 17                        // Paytm
 18        <package android:name="in.org.npci.upiapp" />
-18-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:8:9-54
-18-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:8:18-51
+18-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:8:9-54
+18-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:8:18-51
 19                     // BHIM
 20        <package android:name="in.amazon.mShop.android.shopping" />
-20-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:9:9-68
-20-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:9:18-65
+20-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:9:9-68
+20-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:9:18-65
 21       // AmazonPay
 22    </queries>
 23
 24    <uses-permission android:name="android.permission.INTERNET" />
-24-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:3:5-67
-24-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:3:22-64
+24-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:3:5-67
+24-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:3:22-64
 25    <uses-permission android:name="android.permission.WAKE_LOCK" />
-25-->[:react-native-firebase_auth] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-68
-25-->[:react-native-firebase_auth] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:22-65
+25-->[:react-native-firebase_auth] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-68
+25-->[:react-native-firebase_auth] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:22-65
 26    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-26-->[:react-native-firebase_auth] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
-26-->[:react-native-firebase_auth] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-76
+26-->[:react-native-firebase_auth] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
+26-->[:react-native-firebase_auth] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-76
 27    <!--
 28    This manifest file is used only by Gradle to configure debug-only capabilities
 29    for React Native Apps.
@@ -67,70 +67,70 @@
 39-->[com.github.andriydruk:dnssd:0.9.16] C:\Users\rajiv\.gradle\caches\transforms-4\f0c57be77b8b1b2f8b31dbe3b44e1edf\transformed\jetified-dnssd-0.9.16\AndroidManifest.xml:9:22-83
 40
 41    <application
-41-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:12:5-30:19
+41-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:12:5-30:19
 42        android:name="com.quantifi.MainApplication"
-42-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:13:7-38
+42-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:13:7-38
 43        android:allowBackup="false"
-43-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:16:7-34
+43-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:16:7-34
 44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 44-->[androidx.core:core:1.9.0] C:\Users\rajiv\.gradle\caches\transforms-4\f76bdcd48ff8fedc2015290c63fdd657\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 45        android:debuggable="true"
 46        android:extractNativeLibs="false"
 47        android:icon="@mipmap/ic_launcher"
-47-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:15:7-41
+47-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:15:7-41
 48        android:label="@string/app_name"
-48-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:14:7-39
+48-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:14:7-39
 49        android:theme="@style/AppTheme"
-49-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:17:7-38
+49-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:17:7-38
 50        android:usesCleartextTraffic="true" >
-50-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\debug\AndroidManifest.xml:6:9-44
+50-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\debug\AndroidManifest.xml:6:9-44
 51        <activity
-51-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:18:7-29:18
+51-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:18:7-29:18
 52            android:name="com.quantifi.MainActivity"
-52-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:19:9-37
+52-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:19:9-37
 53            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
-53-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:21:9-118
+53-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:21:9-118
 54            android:exported="true"
-54-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:24:9-32
+54-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:24:9-32
 55            android:label="@string/app_name"
-55-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:20:9-41
+55-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:20:9-41
 56            android:launchMode="singleTask"
-56-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:22:9-40
+56-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:22:9-40
 57            android:windowSoftInputMode="adjustResize" >
-57-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:23:9-51
+57-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:23:9-51
 58            <intent-filter>
-58-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:25:9-28:25
+58-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:25:9-28:25
 59                <action android:name="android.intent.action.MAIN" />
-59-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:26:13-65
-59-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:26:21-62
+59-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:26:13-65
+59-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:26:21-62
 60
 61                <category android:name="android.intent.category.LAUNCHER" />
-61-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:27:13-73
-61-->E:\Programs Solved\Android Development\Quantifi\quantifi\android\app\src\main\AndroidManifest.xml:27:23-70
+61-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:27:13-73
+61-->E:\Programs Solved\Android Development\Quantifi\frontend\android\app\src\main\AndroidManifest.xml:27:23-70
 62            </intent-filter>
 63        </activity>
 64
 65        <meta-data
-65-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:9-11:36
+65-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:9-11:36
 66            android:name="app_data_collection_default_enabled"
-66-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-63
+66-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-63
 67            android:value="true" />
-67-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-33
+67-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-33
 68
 69        <service
-69-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:9-21:19
+69-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:9-21:19
 70            android:name="com.google.firebase.components.ComponentDiscoveryService"
-70-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-84
+70-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-84
 71            android:directBootAware="true"
-71-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-43
+71-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-43
 72            android:exported="false" >
-72-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-37
+72-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-37
 73            <meta-data
-73-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-20:85
+73-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-20:85
 74                android:name="com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar"
-74-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:17-120
+74-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:17-120
 75                android:value="com.google.firebase.components.ComponentRegistrar" />
-75-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:17-82
+75-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:17-82
 76            <meta-data
 76-->[com.google.firebase:firebase-firestore:25.0.0] C:\Users\rajiv\.gradle\caches\transforms-4\a47e8dd64ab2ecd23dcd31280177c43b\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:17:13-19:85
 77                android:name="com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar"
@@ -188,48 +188,48 @@
 103        </service>
 104
 105        <provider
-105-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:9-27:38
+105-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:9-27:38
 106            android:name="io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider"
-106-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-88
+106-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-88
 107            android:authorities="com.quantifi.reactnativefirebaseappinitprovider"
-107-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:13-86
+107-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:13-86
 108            android:exported="false"
-108-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:13-37
+108-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:13-37
 109            android:initOrder="99" />
-109-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:27:13-35
+109-->[:react-native-firebase_app] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:27:13-35
 110        <provider
-110-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-16:20
+110-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-16:20
 111            android:name="com.vinzscam.reactnativefileviewer.FileProvider"
-111-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-75
+111-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-75
 112            android:authorities="com.quantifi.provider"
-112-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-60
+112-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-60
 113            android:exported="false"
-113-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
+113-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
 114            android:grantUriPermissions="true" >
-114-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-47
+114-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-47
 115            <meta-data
-115-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:70
+115-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:70
 116                android:name="android.support.FILE_PROVIDER_PATHS"
-116-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-67
+116-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-67
 117                android:resource="@xml/file_viewer_provider_paths" />
-117-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
+117-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
 118        </provider>
 119        <provider
-119-->[:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-16:20
+119-->[:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-16:20
 120            android:name="com.imagepicker.ImagePickerProvider"
-120-->[:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-63
+120-->[:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-63
 121            android:authorities="com.quantifi.imagepickerprovider"
-121-->[:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-71
+121-->[:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-71
 122            android:exported="false"
-122-->[:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
+122-->[:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
 123            android:grantUriPermissions="true" >
-123-->[:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-47
+123-->[:react-native-image-picker] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-47
 124            <meta-data
-124-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:70
+124-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:70
 125                android:name="android.support.FILE_PROVIDER_PATHS"
-125-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-67
+125-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-67
 126                android:resource="@xml/imagepicker_provider_paths" />
-126-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\quantifi\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
+126-->[:react-native-file-viewer] E:\Programs Solved\Android Development\Quantifi\frontend\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
 127        </provider>
 128
 129        <activity

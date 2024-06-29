@@ -108,11 +108,11 @@ const Signup = ({navigation}) => {
       return;
     }
 
-    const filename = uri.substring(uri.lastIndexOf('/') + 1);
+    const filename = name + "_" + email + uri.substring(uri.lastIndexOf('/') + 1);
     const uploadUri = Platform.OS === 'ios' ? uri.replace('file://', '') : uri;
     setUploading(true);
     setTransferred(0);
-    const task = storage().ref(filename).putFile(uploadUri);
+    const task = storage().ref(`UserProfile/${filename}`).putFile(uploadUri);
 
     task.on('state_changed', snapshot => {
       setTransferred(
@@ -122,7 +122,7 @@ const Signup = ({navigation}) => {
 
     try {
       await task;
-      const url = await storage().ref(filename).getDownloadURL();
+      const url = await storage().ref(`UserProfile/${filename}`).getDownloadURL();
       setImageURL(url);
       await handleSignup(name, email, password, url);
     } catch (e) {

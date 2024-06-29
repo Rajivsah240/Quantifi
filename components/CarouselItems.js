@@ -104,12 +104,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Raleway-Medium',
     fontSize: 18,
     fontWeight: '600',
-    color: 'black',
+    color: 'white',
   },
   subHeaderText: {
     fontFamily: 'Raleway-Light',
     fontSize: 12,
-    color: 'black',
+    color: 'white',
   },
   card: {
     width: ITEM_WIDTH,

@@ -594,6 +594,32 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name=":@@:react-native-document-picker::release"
+      jars="C:\Users\rajiv\.gradle\caches\transforms-4\9b26e6f357785a5f01ba8d840352de49\transformed\out\jars\classes.jar;C:\Users\rajiv\.gradle\caches\transforms-4\9b26e6f357785a5f01ba8d840352de49\transformed\out\jars\libs\R.jar"
+      resolved="quantifi:react-native-document-picker:unspecified"
+      folder="C:\Users\rajiv\.gradle\caches\transforms-4\9b26e6f357785a5f01ba8d840352de49\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name=":@@:react-native-file-viewer::release"
+      jars="C:\Users\rajiv\.gradle\caches\transforms-4\a3ddde3edeb36c7bea7a72991dc2414c\transformed\out\jars\classes.jar;C:\Users\rajiv\.gradle\caches\transforms-4\a3ddde3edeb36c7bea7a72991dc2414c\transformed\out\jars\libs\R.jar"
+      resolved="quantifi:react-native-file-viewer:unspecified"
+      folder="C:\Users\rajiv\.gradle\caches\transforms-4\a3ddde3edeb36c7bea7a72991dc2414c\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name=":@@:react-native-gesture-handler::release"
       jars="C:\Users\rajiv\.gradle\caches\transforms-4\92ca88c3972aab4282baacc015d65529\transformed\out\jars\classes.jar;C:\Users\rajiv\.gradle\caches\transforms-4\92ca88c3972aab4282baacc015d65529\transformed\out\jars\libs\R.jar"
       resolved="quantifi:react-native-gesture-handler:unspecified"

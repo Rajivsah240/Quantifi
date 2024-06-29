@@ -47,7 +47,7 @@ const JoinGroup = ({navigation, route}) => {
         setTimeout(() => {
           setModalVisible(false);
           navigation.navigate('ChatScreen');
-        }, 5000);
+        }, 2000);
       } else {
         setIsError(true);
         setModalMessage(data.message);
@@ -114,19 +114,19 @@ const JoinGroup = ({navigation, route}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#151515',
   },
   header: {
     height: 60,
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
-    backgroundColor: 'rgba(206, 255, 237, 0.5)',
+    backgroundColor: 'black',
   },
   headerTitle: {
     fontSize: 20,
     fontFamily: 'Raleway-Bold',
-    color: '#000',
+    color: '#fff',
     marginLeft: 10,
   },
   form: {
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     marginBottom: 10,
-    color: 'black',
+    color: '#f9f9f9',
     fontFamily: 'Raleway-Medium',
   },
   input: {
@@ -146,10 +146,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     paddingLeft: 8,
     borderRadius: 5,
-    color: 'black',
+    color: '#fff',
   },
   button: {
-    backgroundColor: '#007bff',
+    backgroundColor: '#2196F3FF',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalWrapper: {
-    backgroundColor: '#fff',
+    backgroundColor: '#1e1e1e',
     padding: 20,
     borderRadius: 10,
     alignItems: 'center',
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   modalButton: {
-    backgroundColor: '#007bff',
+    backgroundColor: '#2196F3FF',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
