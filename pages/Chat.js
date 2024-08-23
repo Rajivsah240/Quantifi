@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, {useState, useEffect, useMemo, useRef} from 'react';
 import {
   View,
   Text,
@@ -6,18 +6,23 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   Modal,
   ScrollView,
   ImageBackground,
+  ActivityIndicator,
+  Linking,
+  Alert
 } from 'react-native';
 import io from 'socket.io-client';
 import axios from 'axios';
-import { Avatar, Icon } from '@rneui/themed';
+import {Avatar, Icon} from '@rneui/themed';
 import moment from 'moment';
-import { useFocusEffect } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {launchImageLibrary} from 'react-native-image-picker';
+import DocumentPicker from 'react-native-document-picker';
+import storage from '@react-native-firebase/storage';
 
-const Chat = ({ route, navigation }) => {
+const Chat = ({route, navigation}) => {
   const {
     groupId,
     groupName,
@@ -29,9 +34,17 @@ const Chat = ({ route, navigation }) => {
   } = route.params;
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
+
   const [error, setError] = useState('');
   const [members, setMembers] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
+  const [activityVisible, setActivityVisible] = useState(false);
+  const [showButtons,setShowButtons]=useState(false);
+
+  const [loading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [transferred, setTransferred] = useState(0);
+  const [uploadTask, setUploadTask] = useState(null);
 
   const SERVER_IP = process.env.SERVER_IP;
   const SOCKET_SERVER_IP = process.env.SOCKET_SERVER_IP;
@@ -39,49 +52,144 @@ const Chat = ({ route, navigation }) => {
 
   const flatListRef = useRef(null);
 
-  useEffect(() => {
-    fetchPreviousMessages();
-    
-    socket.emit('joinGroup', { groupId, userEmail });
-    socket.on('newMessage', data => {
-      setMessages(prevMessages => [...prevMessages, data]);
-      scrollToBottom();
-    });
-    scrollToBottom();
+  const saveMessageToStorage = async msgData => {
+    try {
+      const existingMessages = await AsyncStorage.getItem(
+        `group_${groupId}_messages`,
+      );
+      let messagesToStore = [];
+      if (existingMessages) {
+        messagesToStore = JSON.parse(existingMessages);
+      }
+      messagesToStore.push(msgData);
+      await AsyncStorage.setItem(
+        `group_${groupId}_messages`,
+        JSON.stringify(messagesToStore),
+      );
+      console.log('Saved by: ', userEmail);
+    } catch (error) {
+      console.error('Failed to save message:', error);
+    }
+  };
 
-    return () => {
-      socket.emit('leaveGroup', { groupId, userEmail });
-      socket.off();
-    };
-  }, [groupId, userEmail]);
+  // const clearMessageStorage = async groupId => {
+  //   Alert.alert(
+  //     'Confirm Delete',
+  //     'Are you sure you want to clear all messages?',
+  //     [
+  //       {
+  //         text: 'Cancel',
+  //         onPress: () => console.log('Cancel Pressed'),
+  //         style: 'cancel',
+  //       },
+  //       {
+  //         text: 'OK',
+  //         onPress: async () => {
+  //           try {
+  //             await AsyncStorage.removeItem(`group_${groupId}_messages`);
+  //             console.log(`Storage cleared for group: ${groupId}`);
+  //           } catch (error) {
+  //             console.error('Failed to clear storage:', error);
+  //           }
+  //         },
+  //       },
+  //     ],
+  //     { cancelable: false },
+  //   );
+  // };
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
-
+  const clearMessageStorage = async groupId => {
+    try {
+      await AsyncStorage.removeItem(`group_${groupId}_messages`);
+      console.log(`Storage cleared for group: ${groupId}`);
+    } catch (error) {
+      console.error('Failed to clear storage:', error);
+    }
+  };
   
+
+  const leaveGroup = async () => {
+    Alert.alert(
+      'Confirm Leave',
+      'Are you sure you want to leave this group?',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {
+          text: 'OK',
+          onPress: async () => {
+            try {
+              const response = await axios.post(`${SERVER_IP}/leave-group`, {
+                groupId,
+                userEmail,
+              });
+              const data = response.data;
+              if (data.success) {
+                clearMessageStorage(groupId);
+                console.log('Left group:', groupId);
+                navigation.goBack();
+              } else {
+                console.error(data.message);
+              }
+            } catch (error) {
+              console.error(error);
+            }
+          },
+        },
+      ],
+      { cancelable: false },
+    );
+  };
+
   const fetchPreviousMessages = async () => {
     try {
-      const response = await axios.get(`${SERVER_IP}/messages`, {
-        params: { groupId },
-      });
-      const data = response.data;
-      if (data.success) {
-        setMessages(data.messages);
-        scrollToBottom();
+      const storedMessages = await AsyncStorage.getItem(
+        `group_${groupId}_messages`,
+      );
+      if (storedMessages) {
+        setMessages(JSON.parse(storedMessages));
       } else {
-        setError(data.message);
+        setMessages([]);
       }
+      scrollToBottom();
     } catch (error) {
       console.error(error);
       setError('Failed to fetch messages. Please try again later.');
     }
   };
 
+  useEffect(() => {
+    fetchPreviousMessages();
+
+    socket.emit('joinGroup', {groupId, userEmail});
+    socket.on('newMessage', data => {
+      if (data.userEmail != userEmail) {
+        setMessages(prevMessages => [...prevMessages, data]);
+        scrollToBottom();
+        saveMessageToStorage(data);
+      }
+      console.log('Received by: ', userEmail, ':', data);
+    });
+
+    return () => {
+      socket.emit('leaveGroup', {groupId, userEmail});
+      socket.off();
+    };
+  }, [groupId, userEmail, clearMessageStorage]);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  
+
   const fetchGroupMembers = async () => {
     try {
       const response = await axios.get(`${SERVER_IP}/group-members`, {
-        params: { groupId },
+        params: {groupId},
       });
       const data = response.data;
       if (data.success) {
@@ -96,7 +204,7 @@ const Chat = ({ route, navigation }) => {
     }
   };
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (message.trim()) {
       const currentTime = new Date();
       const msgData = {
@@ -106,8 +214,151 @@ const Chat = ({ route, navigation }) => {
         message,
         timestamp: currentTime.toISOString(),
       };
+      setMessages(prevMessages => [...prevMessages, msgData]);
+      saveMessageToStorage(msgData);
+      scrollToBottom();
       socket.emit('message', msgData);
       setMessage('');
+    }
+  };
+
+  
+  const uploadImage = async file => {
+    const {uri} = file;
+    const fileName = uri.substring(uri.lastIndexOf('/') + 1);
+    const storageRef = storage().ref(
+      `Groups/media/group_${groupId}/${fileName}`,
+    );
+    const task = storageRef.putFile(uri);
+    setUploadTask(task);
+    setUploading(true);
+    setActivityVisible(true);
+
+    task.on('state_changed', snapshot => {
+      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      setTransferred(progress);
+    });
+
+    try {
+      await task;
+      const url = await storageRef.getDownloadURL();
+      setUploading(false);
+      setActivityVisible(false);
+      setTransferred(0);
+      setUploadTask(null);
+      return url;
+    } catch (error) {
+      console.error('File upload error:', error);
+      setUploading(false);
+      setActivityVisible(false);
+      setTransferred(0);
+      setUploadTask(null);
+      return null;
+    }
+  };
+
+  const uploadFile = async file => {
+    const uri = file;
+    const fileName = uri.substring(uri.lastIndexOf('/') + 1);
+    const storageRef = storage().ref(
+      `Groups/media/group_${groupId}/${fileName}`,
+    );
+    const task = storageRef.putFile(uri);
+    setUploadTask(task);
+    setUploading(true);
+    setActivityVisible(true);
+
+    task.on('state_changed', snapshot => {
+      const progress =
+        Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      setTransferred(progress);
+    });
+
+    try {
+      await task;
+      const url = await storageRef.getDownloadURL();
+      setUploading(false);
+      setActivityVisible(false);
+      setTransferred(0);
+      setUploadTask(null);
+      return url;
+    } catch (error) {
+      console.error('File upload error:', error);
+      setUploading(false);
+      setTransferred(0);
+      setUploadTask(null);
+      return null;
+    }
+  };
+
+  const selectMedia = async () => {
+    const result = await launchImageLibrary({mediaType: 'mixed'});
+
+    if (result.didCancel) {
+      console.log('User cancelled image picker');
+    } else if (result.error) {
+      console.error('ImagePicker Error: ', result.error);
+    } else {
+      const {assets} = result;
+      if (assets && assets.length > 0) {
+        const file = assets[0];
+        const url = await uploadImage(file);
+        if (url) {
+          const currentTime = new Date();
+          const msgData = {
+            groupId,
+            userEmail,
+            username,
+            message: file.fileName,
+            url: url,
+            timestamp: currentTime.toISOString(),
+            fileType: file.type,
+          };
+          setMessages(prevMessages => [...prevMessages, msgData]);
+          saveMessageToStorage(msgData);
+          scrollToBottom();
+          socket.emit('message', msgData);
+          console.log(msgData);
+        }
+      }
+    }
+  };
+
+  const pickFile = async () => {
+    try {
+      const result = await DocumentPicker.pickSingle({
+        type: [DocumentPicker.types.allFiles],
+        copyTo: 'cachesDirectory',
+      });
+      console.log(result);
+
+      if (result) {
+        const file = result.fileCopyUri;
+        const url = await uploadFile(file);
+        if (url) {
+          const currentTime = new Date();
+          const msgData = {
+            groupId,
+            userEmail,
+            username,
+            message: result.name,
+            url: url,
+            timestamp: currentTime.toISOString(),
+            fileType: result.type,
+          };
+          setMessages(prevMessages => [...prevMessages, msgData]);
+          saveMessageToStorage(msgData);
+          scrollToBottom();
+          socket.emit('message', msgData);
+          console.log(msgData);
+        }
+      }
+    } catch (err) {
+      if (DocumentPicker.isCancel(err)) {
+        console.log('User cancelled file picker');
+      } else {
+        console.error('DocumentPicker Error: ', err);
+      }
     }
   };
 
@@ -116,23 +367,20 @@ const Chat = ({ route, navigation }) => {
       flatListRef.current.scrollToEnd();
     }
   };
-  
 
-  const renderMessageItem = ({ item }) => (
+  const renderMessageItem = ({item}) => (
     <View
       style={[
         styles.messageItem,
         item.userEmail === userEmail ? styles.myMessage : styles.otherMessage,
-      ]}
-    >
+      ]}>
       <View style={styles.messageContent}>
         <Text
           style={[
             item.userEmail === userEmail
               ? styles.myMessageUsername
               : styles.otherMessageUsername,
-          ]}
-        >
+          ]}>
           {item.username}
         </Text>
         <Text
@@ -140,12 +388,29 @@ const Chat = ({ route, navigation }) => {
             item.userEmail === userEmail
               ? styles.myMessageTime
               : styles.otherMessageTime,
-          ]}
-        >
+          ]}>
           {moment(item.timestamp).format('h:mm A')}
         </Text>
       </View>
-      <Text style={styles.messageText}>{item.message}</Text>
+      {item.url ? (
+        <TouchableOpacity
+          style={styles.attachment}
+          onPress={() => Linking.openURL(item.url)}>
+          {item.fileType && item.fileType.includes('image') ? (
+            <Icon name="file" size={20} type="font-awesome" color="grey" />
+          ) : (
+            <Icon
+              name="file-pdf-box"
+              size={20}
+              type="material-community"
+              color="red"
+            />
+          )}
+          <Text style={styles.messageText}>{item.message}</Text>
+        </TouchableOpacity>
+      ) : (
+        <Text style={styles.messageText}>{item.message}</Text>
+      )}
     </View>
   );
 
@@ -158,9 +423,7 @@ const Chat = ({ route, navigation }) => {
   );
 
   const groupedMessages = messages.reduce((groups, message) => {
-    const date = moment(message.timestamp)
-      .startOf('day')
-      .format('YYYY-MM-DD');
+    const date = moment(message.timestamp).startOf('day').format('YYYY-MM-DD');
     if (!groups[date]) {
       groups[date] = [];
     }
@@ -169,24 +432,23 @@ const Chat = ({ route, navigation }) => {
   }, {});
 
   const flatMessages = Object.keys(groupedMessages).flatMap(date => [
-    { type: 'date', date },
+    {type: 'date', date},
     ...groupedMessages[date],
   ]);
 
-  const renderItem = ({ item }) =>
+  const renderItem = ({item}) =>
     item.type === 'date'
       ? renderDateSeparator(item.date)
-      : renderMessageItem({ item });
+      : renderMessageItem({item});
 
   return (
     <ImageBackground
       source={require('../assets/images/chat_background.jpg')}
-      style={styles.container}
-    >
+      style={styles.container}>
       <View style={styles.header}>
         <Avatar
           rounded
-          source={{ uri: groupImage }}
+          source={{uri: groupImage}}
           size={40}
           containerStyle={styles.avatar}
         />
@@ -194,7 +456,7 @@ const Chat = ({ route, navigation }) => {
           <Text style={styles.headerTitle}>{groupName}</Text>
           <Text style={styles.headerID}>{groupId}</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}} style={styles.menuButton}>
+        <TouchableOpacity onPress={() => setShowButtons(!showButtons)} style={styles.menuButton}>
           <Icon
             name="dots-three-vertical"
             type="entypo"
@@ -203,6 +465,23 @@ const Chat = ({ route, navigation }) => {
           />
         </TouchableOpacity>
       </View>
+      {showButtons &&
+        (
+          <View style={styles.actionButtons}>
+          <TouchableOpacity
+            style={styles.actionButton}
+            onPress={() => {
+              clearMessageStorage(groupId);
+            }}>
+            <Text style={styles.buttonText}>Clear the Chat</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.actionButton}
+            onPress={leaveGroup}>
+            <Text style={[styles.buttonText,styles.leaveButton]}>Leave Group</Text>
+          </TouchableOpacity>
+        </View>
+        )}
       {error ? <Text style={styles.error}>{error}</Text> : null}
       <FlatList
         ref={flatListRef}
@@ -210,11 +489,11 @@ const Chat = ({ route, navigation }) => {
         keyExtractor={(item, index) => index.toString()}
         renderItem={renderItem}
         style={styles.messageList}
-        onLayout={scrollToBottom} // Ensures scroll to bottom on first load
+        onLayout={scrollToBottom}
       />
       <View style={styles.inputContainer}>
         <View style={styles.inputCnts}>
-          <TouchableOpacity onPress={() => {}} style={styles.cameraButton}>
+          <TouchableOpacity onPress={selectMedia} style={styles.cameraButton}>
             <Icon name="camera" type="material" color="grey" />
           </TouchableOpacity>
 
@@ -225,7 +504,7 @@ const Chat = ({ route, navigation }) => {
             placeholder="Type your message"
             placeholderTextColor="#888"
           />
-          <TouchableOpacity onPress={() => {}} style={styles.attachmentButton}>
+          <TouchableOpacity onPress={pickFile} style={styles.attachmentButton}>
             <Icon name="attachment" type="material" color="grey" />
           </TouchableOpacity>
         </View>
@@ -237,12 +516,10 @@ const Chat = ({ route, navigation }) => {
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
-      >
+        onRequestClose={() => setModalVisible(false)}>
         <TouchableOpacity
           onPress={() => setModalVisible(false)}
-          style={styles.modalBackground}
-        >
+          style={styles.modalBackground}>
           <View style={styles.modalView}>
             <Text style={styles.modalDescriptionText}>Description</Text>
             <Text style={styles.modalDescription}>{groupDescription}</Text>
@@ -262,11 +539,43 @@ const Chat = ({ route, navigation }) => {
             </ScrollView>
             <TouchableOpacity
               style={styles.closeButton}
-              onPress={() => setModalVisible(false)}
-            >
+              onPress={() => setModalVisible(false)}>
               <Text style={styles.closeButtonText}>Close</Text>
             </TouchableOpacity>
           </View>
+        </TouchableOpacity>
+      </Modal>
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={activityVisible}
+        onRequestClose={() => setActivityVisible(false)}>
+        <TouchableOpacity
+          onPress={() => setActivityVisible(false)}
+          style={styles.modalBackground}>
+          <View style={styles.modalView}>
+            <View style={styles.progressContainer}>
+              <Text style={styles.progressText}>{transferred}% Uploaded</Text>
+              <ActivityIndicator size="large" color="#2196F3" />
+              {uploadTask && (
+                <TouchableOpacity
+                  style={styles.cancelButton}
+                  onPress={() => {
+                    uploadTask.cancel();
+                    setActivityVisible(false);
+                    setUploadTask(null);
+                  }}>
+                  <Text style={styles.cancelButtonText}>Cancel</Text>
+                </TouchableOpacity>
+              )}
+            </View>
+          </View>
+          <TouchableOpacity
+            style={styles.closeButton}
+            onPress={() => setActivityVisible(false)}>
+            <Text style={styles.closeButtonText}>Close</Text>
+          </TouchableOpacity>
         </TouchableOpacity>
       </Modal>
     </ImageBackground>
@@ -276,7 +585,7 @@ const Chat = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    resizeMode:'cover'
+    resizeMode: 'cover',
     // backgroundColor: '#151515',
   },
   header: {
@@ -307,6 +616,29 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 20,
   },
+  actionButtons: {
+    position: 'absolute',
+    top: 50,
+    right: 5,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    borderRadius: 10,
+    backgroundColor: '#1e1e1e',
+    zIndex:20
+  },
+  actionButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    zIndex:20
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 12,
+    fontFamily: 'Raleway-Medium',
+  },
+  leaveButton: {
+    color: '#f44336',
+  },
   messageList: {
     flex: 1,
     paddingHorizontal: 10,
@@ -326,8 +658,19 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   messageText: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#fff',
+    marginLeft: 2,
+  },
+  attachment: {
+    backgroundColor: '#151515',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10,
+    // margin: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   messageContent: {
     flexDirection: 'row',
@@ -365,14 +708,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 7,
-    
+
     // borderTopWidth: 1,
     // borderTopColor: '#ccc',
     // backgroundColor: '#fff',
   },
   inputCnts: {
     flex: 1,
-    marginRight:10,
+    marginRight: 10,
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 25,
@@ -475,6 +818,25 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+
+  progressContainer: {
+    alignItems: 'center',
+  },
+  progressText: {
+    marginBottom: 10,
+    fontSize: 16,
+    color: '#fff',
+  },
+  cancelButton: {
+    marginTop: 10,
+    padding: 10,
+    backgroundColor: '#f44336',
+    borderRadius: 20,
+  },
+  cancelButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });
 

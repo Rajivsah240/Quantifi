@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.quantifi.app-mergeDebugResources-39:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.quantifi.app-mergeDebugResources-40:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "C:\\Users\\rajiv\\.gradle\\caches\\transforms-4\\5aadb3469717b3836be5626294f6b85d\\transformed\\appcompat-1.6.1\\res\\values-night-v8\\values-night-v8.xml",

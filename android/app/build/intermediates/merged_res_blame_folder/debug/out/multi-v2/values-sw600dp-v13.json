@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.quantifi.app-mergeDebugResources-39:/values-sw600dp-v13/values-sw600dp-v13.xml",
+            "outputFile": "com.quantifi.app-mergeDebugResources-40:/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
                     "source": "C:\\Users\\rajiv\\.gradle\\caches\\transforms-4\\5aadb3469717b3836be5626294f6b85d\\transformed\\appcompat-1.6.1\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",

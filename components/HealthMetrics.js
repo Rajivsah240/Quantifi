@@ -11,7 +11,7 @@ const HealthMetrics = () => {
           value='--'
           unit='bpm'
           status='NORMAL'
-          color='rgba(251, 206, 255, 0.5z)'
+          color='rgba(251, 206, 255, 0.5)'
         />
         <MetricBox
           title='Weight'

@@ -27,6 +27,7 @@ import Chat from './pages/Chat';
 import CreateGroup from './pages/CreateGroup';
 import JoinGroup from './pages/JoinGroup';
 import ChatScreen from './pages/ChatScreen';
+import FileViewer from './components/FileViewer';
 const Stack = createStackNavigator();
 
 
@@ -53,6 +54,7 @@ const App = () => {
           <Stack.Screen name="Home" component={Home}/>
           <Stack.Screen name="ChatScreen" component={ChatScreen} />
           <Stack.Screen name="Chat" component={Chat} />
+          <Stack.Screen name="FileViewer" component={FileViewer} />
           <Stack.Screen name="CreateGroup" component={CreateGroup} />
           <Stack.Screen name="JoinGroup" component={JoinGroup} />
           <Stack.Screen name="PremiumPlans" component={PremiumPlans}/>

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.quantifi.app-mergeDebugResources-39:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "com.quantifi.app-mergeDebugResources-40:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
                     "source": "C:\\Users\\rajiv\\.gradle\\caches\\transforms-4\\3f4c3f202c105ab1e32e6fdf52bed7e8\\transformed\\jetified-play-services-auth-21.1.1\\res\\values-watch-v20\\values.xml",

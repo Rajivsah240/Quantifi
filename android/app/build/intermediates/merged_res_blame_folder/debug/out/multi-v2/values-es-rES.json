@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.quantifi.app-mergeDebugResources-39:/values-es-rES/values-es-rES.xml",
+            "outputFile": "com.quantifi.app-mergeDebugResources-40:/values-es-rES/values-es-rES.xml",
             "map": [
                 {
                     "source": "C:\\Users\\rajiv\\.gradle\\caches\\transforms-4\\cff4b1d2c0f2520f59a0aac653ca6b7e\\transformed\\jetified-react-android-0.74.1-debug\\res\\values-es-rES\\values-es-rES.xml",

@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useContext, useMemo, useCallback } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useMemo,
+  useCallback,
+} from 'react';
 import {
   View,
   Text,
@@ -8,11 +14,12 @@ import {
   SafeAreaView,
 } from 'react-native';
 import axios from 'axios';
-import { userContext } from '../AuthContext';
-import { Icon, Avatar } from '@rneui/themed';
-import { useFocusEffect } from '@react-navigation/native';
+import {userContext} from '../AuthContext';
+import {Icon, Avatar} from '@rneui/themed';
+import {useFocusEffect} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const ChatScreen = ({ navigation }) => {
+const ChatScreen = ({navigation}) => {
   const SERVER_IP = process.env.SERVER_IP;
   const {user} = userContext();
   const userEmail = user.email;
@@ -20,11 +27,12 @@ const ChatScreen = ({ navigation }) => {
   const [userGroups, setUserGroups] = useState([]);
   const [error, setError] = useState('');
   const [showButtons, setShowButtons] = useState(false);
+  const [latestMessages, setLatestMessages] = useState({});
 
   const fetchUserGroups = useCallback(async () => {
     try {
       const response = await axios.get(`${SERVER_IP}/user-groups`, {
-        params: { email: userEmail },
+        params: {email: userEmail},
         validateStatus: status => status < 500,
       });
       const data = response.data;
@@ -39,49 +47,93 @@ const ChatScreen = ({ navigation }) => {
       console.error(error);
       setError('Failed to fetch groups. Please try again later.');
     }
-  }, [SERVER_IP, userEmail]);
+  }, [SERVER_IP]);
 
-  useEffect(() => {
-    fetchUserGroups();
-  }, [fetchUserGroups]);
+  const fetchLatestMessagesForGroups = useCallback(async groups => {
+    const messages = {};
+    for (const group of groups) {
+      messages[group.id] = await getLatestMessageFromStorage(group.id);
+    }
+    setLatestMessages(messages);
+  }, []);
 
   useFocusEffect(
     useCallback(() => {
       fetchUserGroups();
-    }, [fetchUserGroups])
+    }, [fetchUserGroups]),
   );
 
-  const renderGroupItem = ({ item }) => (
-    <View style={styles.itemContainer}>
-      <Avatar rounded source={{ uri: item.profile }} size={50} containerStyle={styles.avatar} />
-      <TouchableOpacity
-        style={styles.groupItem}
-        onPress={() =>
-          navigation.navigate('Chat', {
-            groupId: item.id,
-            userEmail,
-            username,
-            groupName: item.name,
-            groupImage: item.profile,
-            groupDescription: item.description,
-            groupAdmin: item.admin,
-          })
-        }>
-        <View style={styles.groupInfo}>
-          <Text style={styles.groupName}>{item.name}</Text>
-          {item.latestMessage ? (
-            <Text style={styles.latestMessage}>
-              {item.latestMessage.sender}: {item.latestMessage.message.slice(0, 30)}
-              {item.latestMessage.message.length > 30 ? '...' : ''}
+  useEffect(() => {
+    if (userGroups.length > 0) {
+      fetchLatestMessagesForGroups(userGroups);
+    }
+  }, [userGroups, fetchLatestMessagesForGroups]);
+
+  const getLatestMessageFromStorage = async groupId => {
+    try {
+      const messages = await AsyncStorage.getItem(`group_${groupId}_messages`);
+      if (messages) {
+        const parsedMessages = JSON.parse(messages);
+        const latestMessage = parsedMessages[parsedMessages.length - 1];
+        if (latestMessage) {
+          return {
+            sender: latestMessage.username,
+            message: latestMessage.message,
+          };
+        } else {
+          return {sender: 'System', message: 'No messages yet'};
+        }
+      } else {
+        return {sender: 'System', message: 'No messages yet'};
+      }
+    } catch (error) {
+      console.error('Error fetching messages from AsyncStorage:', error);
+      return {sender: 'System', message: 'No messages yet'};
+    }
+  };
+
+  const renderGroupItem = ({item}) => {
+    const latestMsg = latestMessages[item.id] || {
+      sender: 'System',
+      message: 'Loading...',
+    };
+    return (
+      <View style={styles.itemContainer}>
+        <Avatar
+          rounded
+          source={{uri: item.profile}}
+          size={50}
+          containerStyle={styles.avatar}
+        />
+        <TouchableOpacity
+          style={styles.groupItem}
+          onPress={() =>
+            navigation.navigate('Chat', {
+              groupId: item.id,
+              userEmail,
+              username,
+              groupName: item.name,
+              groupImage: item.profile,
+              groupDescription: item.description,
+              groupAdmin: item.admin,
+            })
+          }>
+          <View style={styles.groupInfo}>
+            <Text style={styles.groupName}>{item.name}</Text>
+            <Text style={styles.latestMessageStyle}>
+              {latestMsg.sender}: {latestMsg.message.slice(0, 30)}
+              {latestMsg.message.length > 30 ? '...' : ''}
             </Text>
-          ) : (
-            <Text style={styles.latestMessage}>No messages yet</Text>
-          )}
-        </View>
-        <Icon name="chevron-right" type="material-community" color="#007bff" />
-      </TouchableOpacity>
-    </View>
-  );
+          </View>
+          <Icon
+            name="chevron-right"
+            type="material-community"
+            color="#007bff"
+          />
+        </TouchableOpacity>
+      </View>
+    );
+  };
 
   const memoizedGroups = useMemo(() => userGroups, [userGroups]);
 
@@ -91,7 +143,12 @@ const ChatScreen = ({ navigation }) => {
         <Text style={styles.logo}>Q</Text>
         <Text style={styles.headerTitle}>Chat</Text>
         <TouchableOpacity onPress={() => {}} style={styles.menuButton}>
-          <Icon name="dots-three-vertical" type="entypo" size={15} color="white" />
+          <Icon
+            name="dots-three-vertical"
+            type="entypo"
+            size={15}
+            color="white"
+          />
         </TouchableOpacity>
       </View>
       {error && <Text style={styles.error}>{error}</Text>}
@@ -101,7 +158,8 @@ const ChatScreen = ({ navigation }) => {
         renderItem={renderGroupItem}
         ListEmptyComponent={
           <Text style={styles.emptyGroup}>
-            You are not part of any groups yet. Click the + button below to create or join a group.
+            You are not part of any groups yet. Click the + button below to
+            create or join a group.
           </Text>
         }
         contentContainerStyle={styles.groupList}
@@ -118,7 +176,7 @@ const ChatScreen = ({ navigation }) => {
           <TouchableOpacity
             style={styles.actionButton}
             onPress={() => {
-              navigation.navigate('CreateGroup', { userEmail });
+              navigation.navigate('CreateGroup', {userEmail});
               setShowButtons(!showButtons);
             }}>
             <Text style={styles.buttonText}>Create a Group</Text>
@@ -126,7 +184,7 @@ const ChatScreen = ({ navigation }) => {
           <TouchableOpacity
             style={styles.actionButton}
             onPress={() => {
-              navigation.navigate('JoinGroup', { userEmail });
+              navigation.navigate('JoinGroup', {userEmail});
               setShowButtons(!showButtons);
             }}>
             <Text style={styles.buttonText}>Join a Group</Text>
@@ -208,7 +266,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     flex: 1,
   },
-  latestMessage: {
+  latestMessageStyle: {
     fontSize: 10,
     color: '#fff',
   },
